@@ -1,0 +1,31 @@
+entero base,exp
+
+funcion factorial(entero numero):entero
+    entero i,facto
+inicio
+    facto <- 1
+    para i <- 2 hasta numero haga
+        facto <- facto * i
+    fin para
+    retorne facto
+fin
+
+funcion potencia(entero base,entero exp):entero 
+    entero pot,i
+inicio
+    pot <- 1
+    para i <- 1 hasta exp haga
+        pot <- pot * base
+    fin para
+    retorne pot
+
+fin
+
+inicio
+    escriba "Base ? "
+    lea base
+    escriba "Exponente ? "
+    lea exp
+    escriba base, " elevado a la ", exp, " = ", potencia(base,exp)
+    
+fin

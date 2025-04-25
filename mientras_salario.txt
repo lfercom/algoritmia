@@ -1,0 +1,22 @@
+cadena[20] nombre
+entero horas_trabajadas
+real valor_hora,salario
+caracter siga
+
+inicio
+    siga <- 'S'
+    mientras(siga = 'S') o (siga = 's') haga
+        llamar limpiar_pantalla
+        escriba "Nombre......... : "
+        lea nombre
+        escriba "Horas trabajadas: "
+        lea horas_trabajadas
+        escriba "Valor hora..... : $"
+        lea valor_hora
+        salario <- horas_trabajadas * valor_hora
+        escriba "Salario........ : $",salario
+        llamar nueva_linea
+        escriba "Desea ingresar mas datos (S/N) ? "
+        lea siga
+    fin mientras
+fin

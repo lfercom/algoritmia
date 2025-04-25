@@ -1,0 +1,95 @@
+registro RegPersona
+    entero id
+    cadena[30] nombre
+    arreglo[3] de real notas
+fin registro
+
+RegPersona persona
+
+arreglo[5] de RegPersona listaPersonas
+
+
+procedimiento buscar(arreglo[5] de RegPersona lista)
+    entero id,pos
+inicio    
+    llamar posicionar_cursor(5,5)
+    escriba "Id : "
+    lea id
+    pos <- fBuscar(lista,id)
+    si (pos <> 0) entonces
+         escriba listaPersonas[pos].id, " ",listaPersonas[pos].nombre
+    sino
+        escriba "Persona no encontrada"
+    fin si    
+fin
+
+funcion fBuscar(arreglo[5] de RegPersona lista,entero id) : entero
+    entero i
+inicio
+    para i <- 1 hasta 5 haga
+        si(id = lista[i].id) entonces
+            retorne i
+        fin si
+    fin para
+    retorne 0
+fin
+
+
+
+
+procedimiento ingreso(var arreglo[5] de RegPersona lista)
+    entero i
+    caracter siga
+inicio
+    i <- 1
+    repita
+        llamar posicionar_cursor(20,2)
+        escriba "E N T R A D A   D E   D A T O S"
+        llamar posicionar_cursor(5,5)
+        escriba "Id.....: "
+        llamar posicionar_cursor(5,6)
+        escriba "Nombre : "
+        llamar posicionar_cursor(5,7)
+        escriba "Notas..: [   ] [   ] [   ]"
+        llamar posicionar_cursor(15,5)
+        lea persona.id
+        llamar posicionar_cursor(15,6)
+        lea persona.nombre
+        llamar capturaNotas(persona.notas,15,7)
+        listaPersonas[i] <- persona
+        i <- i + 1
+        llamar posicionar_cursor(20,20)
+        escriba "Desea ingresar un nuevo registro (S/N) ? "
+        lea siga
+        llamar limpiar_pantalla
+    hasta(siga = 'n') o (siga = 'N') o (i > 5)
+fin
+
+
+procedimiento capturaNotas(var arreglo[3] de real notas,entero col, entero fil)
+    entero i
+inicio
+    para i <- 1 hasta 3 haga
+        llamar posicionar_cursor(col,fil)
+        lea notas[i]
+        col <- col + 6
+    fin para
+fin
+
+procedimiento mostrar(arreglo[5] de RegPersona lista)
+    entero i,j
+inicio
+    llamar limpiar_pantalla
+    para i <- 1 hasta 5 haga
+        escriba lista[i].id, " ", lista[i].nombre
+        para j <- 1 hasta 3 haga
+            escriba " ",lista[i].notas[j]
+        fin para
+        llamar nueva_linea
+    fin para
+fin
+
+inicio
+    llamar ingreso(listaPersonas)
+    llamar buscar( listaPersonas)
+fin

@@ -1,0 +1,67 @@
+registro reg_empleado
+    cadena[12] id
+    cadena[20] apellido1
+    cadena[20] apellido2
+    cadena[20] nombre
+    entero horas
+    real  valor_hora
+    
+fin registro
+
+reg_empleado empleado
+
+procedimiento ingreso(var reg_empleado par_empleado)
+    real sueldo
+    caracter continuar
+inicio
+    repita
+        llamar limpiar_pantalla
+        escriba "Id............. : "
+        lea par_empleado.id
+        escriba "Apellido1 : "
+        lea par_empleado.apellido1   
+        escriba "Apellido2 : "
+        lea par_empleado.apellido2
+        escriba "Nombre : "
+        lea par_empleado.nombre
+        escriba "Horas..  : "
+        lea par_empleado.horas
+        escriba "Valor hora : "
+        lea par_empleado.valor_hora
+        sueldo <- sueldo(par_empleado)
+        escriba "Sueldo..... : ",sueldo
+        llamar nueva_linea
+        escriba "Descuento..... : ",descuento(sueldo)
+        llamar nueva_linea
+        escriba "Desea continuar (S/N)  ? "
+        lea continuar
+    hasta(continuar = 'N')  o (continuar = 'n')
+fin
+
+
+
+
+funcion sueldo(reg_empleado empleado):real
+inicio
+    retorne empleado.horas * empleado.valor_hora
+fin
+
+funcion descuento(real sueldo):real
+    real descuento
+inicio
+    si (sueldo <= 1000000) entonces
+        descuento <- sueldo * 0.02
+    sino si(sueldo <= 3000000) entonces
+         descuento <- sueldo * 0.03
+    sino
+         descuento <- sueldo * 0.05
+    fin si
+    fin si
+    retorne descuento
+fin
+
+inicio
+    llamar ingreso(empleado)
+fin
+
+

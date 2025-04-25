@@ -1,0 +1,53 @@
+registro reg_empleado
+    entero id
+    cadena[30] nombre_completo
+    real horas_trabajadas
+    real valor_hora
+    real sueldo
+    
+fin registro
+
+reg_empleado empleado
+
+
+procedimiento ingreso_empleado(var reg_empleado emp)
+    caracter continuar
+inicio
+    repita
+       escriba "Id................ : "
+       lea emp.id
+       escriba "Nombre............ : "
+       lea emp.nombre_completo
+       escriba "Horas trabajajadas : "
+       lea emp.horas_trabajadas
+       escriba "Valor hora...... . : "
+       lea emp.valor_hora
+       emp.sueldo <- emp.horas_trabajadas * emp.valor_hora   
+       escriba "Sueldo............ : ",emp.sueldo
+       llamar nueva_linea
+       escriba "Descuento......... : ",calcular_descuento(emp.sueldo)
+       llamar nueva_linea
+       escriba "Desea continuar (S/N) ? "
+       lea continuar
+       llamar limpiar_pantalla
+    hasta(continuar = 'N') o (continuar = 'n')
+fin
+
+funcion calcular_descuento(real sueldo):real
+    real descuento
+inicio
+    si(sueldo <= 100000) entonces
+        descuento <- sueldo * 0.03
+    sino si(sueldo <= 200000) entonces
+        descuento <- sueldo * 0.05
+    sino
+        descuento <- sueldo * 0.07
+    fin si
+    fin si 
+    retorne descuento
+fin
+
+inicio
+   llamar ingreso_empleado(empleado)
+fin
+

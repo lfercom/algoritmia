@@ -1,0 +1,65 @@
+arreglo[3,3] de entero numeros
+arreglo[3,3] de entero potencias
+
+procedimiento ingresar(var arreglo[3,3] de entero numeros)
+    entero numero,i,j
+inicio
+    para i <- 1 hasta 3 haga
+        para j <- 1 hasta 3 haga
+            escriba "Ingrese numero para fila: ", i, " columna: ",j
+            lea numeros[i,j]
+        fin para
+    fin para
+fin
+
+funcion potencia_matriz(arreglo[3,3] de entero numeros,entero exp):arreglo[3,3] de entero
+   arreglo[3,3] de entero potencias
+   entero i,j
+inicio
+    para i <- 1 hasta 3 haga
+        para j <- 1 hasta 3 haga
+            potencias[i,j] <- potencia(numero[i,j],exp)
+        fin para
+    fin para
+    retorne potencias
+fin
+
+funcion potencia(entero  base,entero exponente):entero
+    entero pot
+inicio
+    pot <- 1 
+    para i <- 1 hasta exponente haga
+        pot <- pot * base
+    fin para
+    retorne pot
+fin
+
+
+
+
+procedimiento mostrar(arreglo[3,3] de entero numeros)
+   entero i,j
+inicio
+   llamar limpiar_pantalla
+    para i <- 1 hasta 3 haga
+        para j <- 1 hasta 3 haga
+            escriba numeros[i,j], " "
+        fin para
+        llamar nueva_linea
+    fin para
+fin
+
+procedimiento frm_matrices
+   entero exponente
+inicio
+    escriba "Ingrese exponente: "
+    lea exponente
+    potencias <- potencia_matriz(numeros,exponente)   
+    llamar mostrar(potencias)
+fin
+
+inicio
+    llamar ingresar(numeros)
+    llamar frm_matrices
+    llamar mostrar(potencias)
+fin

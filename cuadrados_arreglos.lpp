@@ -1,0 +1,43 @@
+arreglo[3,7] de entero numeros
+arreglo[3,7] de entero cuadrados
+
+procedimiento ingresar(var arreglo[3,7] de entero numeros)
+    entero i,j
+inicio
+    para i <- 1 hasta 3 haga
+        para j <- 1 hasta 7 haga
+            escriba "Ingrese un numero para la posicion[",i,",",j,"]: "
+            lea numeros[i,j]
+        fin para
+    fin para
+fin
+
+procedimiento cuadrados(arreglo[3,7] de entero numeros, var arreglo[3,7] de entero cuadrados)
+   entero i,j
+inicio
+    para i <- 1 hasta 3 haga
+        para j <- 1 hasta 7 haga
+            cuadrados[i,j] <- numeros[i,j] * numeros[i,j]
+        fin para
+    fin para
+fin
+
+procedimiento mostrar(arreglo[3,7] de entero matriz_numeros)
+   entero i,j
+inicio
+   para i <- 1 hasta 3 haga
+       para j <- 1 hasta 7 haga
+           escriba matriz_numeros[i,j], " -  "
+       fin para
+       llamar nueva_linea
+   fin para
+fin
+
+inicio
+    llamar ingresar(numeros)
+    llamar cuadrados(numeros,cuadrados)
+    llamar mostrar(cuadrados)
+fin
+
+
+

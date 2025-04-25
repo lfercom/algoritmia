@@ -1,0 +1,61 @@
+registro reg_empleado
+     entero id
+     cadena[10] apellido1
+     cadena[10] apellido2
+     cadena[30] nombre
+     cadena[20] direccion
+     cadena[10] telefono
+     entero salario
+     entero descuento
+fin registro
+
+arreglo[7]de reg_empleado lista_empleado
+
+procedimiento captura (var arreglo[7] de reg_empleado lista_empleado)
+     entero i
+     caracter siga
+inicio
+   siga <- 'S'
+   i <- 1 
+   mientras (siga = 'S') o (siga = 's') haga
+       escriba "Ingrese ID: "
+       lea lista_empleado[i].id
+       escriba "Apellido1: "
+       lea lista_empleado[i].apellido1
+       escriba "Apellido2: "
+       lea lista_empleado[i].apellido2
+       escriba "Nombre completo: "
+       lea lista_empleado[i].nombre
+       escriba "Direccion: "
+       lea lista_empleado[i].direccion
+       escriba "Telefono: "
+       lea lista_empleado[i].telefono
+       escriba "Salario: $"
+       lea lista_empleado[i].salario
+       lista_empleado[i].descuento <- descuento_sal(lista_empleado[i].salario)
+       escriba "Descuento: $",lista_empleado[i].descuento
+       i <- i + 1
+       llamar nueva_linea
+       escriba "Desea ingresar mas datos (S/N): "
+       lea siga
+   fin mientras
+fin
+
+funcion descuento_sal(entero salario):entero
+    entero descuento
+inicio
+    si (salario <= 1000000) entonces
+        descuento <- salario * 0.03
+    sino si (salario <= 2000000) entonces
+        descuento <- salario * 0.05
+    sino 
+        descuento <- salario * 0.07
+    fin si
+    fin si
+    retorne descuento
+fin
+
+
+inicio
+    llamar captura(lista_empleado)
+fin

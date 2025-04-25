@@ -1,0 +1,115 @@
+entero op
+caracter siga
+
+funcion factorial(entero numero):entero
+	entero facto,i
+inicio
+	facto <- 1
+	para i <- 2 hasta numero haga
+		facto <- facto * i
+	fin para
+	retorne facto
+fin
+
+funcion potencia(entero base, entero exponente):entero
+	entero pot,i
+inicio
+	pot <- 1
+	para i <- 1 hasta exponente haga
+		pot <- pot * base
+	fin para
+	retorne pot
+fin
+
+procedimiento proFactorial
+	entero numero
+inicio
+	llamar limpiar_pantalla
+	escriba "Numero: "
+	lea numero
+	escriba "El factorial de ",numero, " es ", factorial(numero)
+	lea siga
+fin
+
+funcion areaTriangulo(entero base, entero altura): entero
+inicio
+	retorne base * altura / 2
+fin
+
+procedimiento proAreaTriangulo
+	entero base, altura
+inicio
+	llamar limpiar_pantalla
+	escriba "Base: "
+	lea base
+	escriba "Altura: "
+	lea altura
+	escriba "Area = ", areaTriangulo(base,altura)
+	lea siga
+fin
+
+funcion areaRectangulo(entero lado1,entero lado2):entero
+inicio
+	retorne lado1 * lado2
+fin
+
+procedimiento proPotencia
+	entero base,exponente
+inicio
+	llamar limpiar_pantalla
+	escriba "Base: "
+	lea base
+	escriba "Exponente: "
+	lea exponente
+	escriba base, " elevado a la ",exponente, " = ", potencia(base,exponente)
+	lea siga
+fin
+
+procedimiento proAreaRectangulo
+	entero lado1,lado2
+inicio
+	llamar limpiar_pantalla
+	escriba "Lado1: "
+	lea lado1
+	escriba "Lado2: "
+	lea lado2
+	escriba "Area : ",areaRectangulo(lado1,lado2) 
+	lea siga
+	
+fin
+
+
+procedimiento menu
+inicio
+	llamar limpiar_pantalla
+	llamar posicionar_cursor(35,5)
+	escriba "M E N U  P R I N C I P A L"
+	llamar posicionar_cursor(45,8)
+	escriba "1. Factorial"
+	llamar posicionar_cursor(45,10)
+	escriba "2. Potencia"
+	llamar posicionar_cursor(45,12)
+	escriba "3. Area triangulo"
+	llamar posicionar_cursor(45,14)
+	escriba "4. Area cuadrado"
+	llamar posicionar_cursor(45,16)
+	escriba "5. Salir"
+	llamar posicionar_cursor(50,20)
+	escriba "Opcion [ ]"
+	llamar posicionar_cursor(58,20)
+	lea op
+fin
+
+inicio
+	repita
+		llamar menu
+		caso op 
+			
+			1 : llamar proFactorial
+			2 : llamar proPotencia
+			3 : llamar proAreaTriangulo
+			4 : llamar proAreaRectangulo
+		fin caso
+		
+	hasta(op = 5)
+fin

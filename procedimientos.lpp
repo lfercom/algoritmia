@@ -1,0 +1,50 @@
+entero id,edad
+cadena[20] nombre
+
+procedimiento bienvenida
+inicio
+  llamar limpiar_pantalla
+  llamar linea(20,9)
+  llamar posicionar_cursor(35,10)
+  escriba "SENA - REGIONAL TOLIMA"
+  llamar posicionar_cursor(25,12)
+  escriba "Analisis y Desarrollo de Sistemas de Informacion"
+  llamar linea(20,13)
+  llamar pausa
+fin
+
+procedimiento linea(entero columna,entero fila)
+    entero i
+inicio
+    para i <- columna hasta 75 haga
+         llamar posicionar_cursor(i,fila)
+         escriba "*"
+    fin para
+fin
+
+procedimiento frm_estudiante
+inicio
+    llamar limpiar_pantalla
+    llamar linea(5,2)
+    llamar posicionar_cursor(5,4)
+    escriba "Id........... :  "
+    lea id
+    llamar posicionar_cursor(5,5)
+    escriba "Nombre. : "
+    lea nombre
+    llamar posicionar_cursor(5,6)
+    escriba "Edad....  : "
+    lea edad
+    llamar linea(5,8)
+fin
+
+procedimiento pausa
+    caracter siga
+inicio
+    lea siga
+fin
+
+inicio   
+   llamar bienvenida
+   llamar frm_estudiante
+fin

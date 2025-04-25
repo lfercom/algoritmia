@@ -1,0 +1,21 @@
+caracter simbolo
+
+funcion tipo_caracter(caracter car):cadena[20]
+   cadena[20] mensaje
+inicio
+    si(car >= '0') y (car <= '9') entonces
+        mensaje <- "Digito"
+    sino si((car >= 'a') y (car <= 'z')) o ((car >= 'A') y (car <= 'Z')) entonces
+        mensaje<- "Letra"
+    sino
+	mensaje<- "Otro caracter"
+    fin si
+    fin si
+    retorne mensaje
+fin
+
+inicio
+    escriba "Caracter ? "
+    lea simbolo
+    escriba "Usted ingreso un(a): ",tipo_caracter(simbolo)
+fin

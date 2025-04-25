@@ -1,0 +1,107 @@
+caracter siga
+
+funcion factorial(entero numero):entero
+    entero facto,i
+inicio
+    facto <- 1
+    para i <- 2 hasta numero haga
+        facto <- facto * i
+    fin para
+    retorne facto
+fin
+
+funcion par_impar(entero numero):cadena[20]
+    cadena[20] resultado
+inicio
+    si(numero mod 2 = 0) entonces
+        resultado <- "El numero es par"
+    sino
+        resultado <- "El numero es impar"
+    fin si
+    retorne resultado
+fin
+
+procedimiento pro_factorial
+    entero numero
+inicio
+    llamar limpiar_pantalla
+    escriba "Numero ? "
+    lea numero    
+    escriba "Factorial de ",numero, " es ",factorial(numero)
+fin
+
+procedimiento area_triangulo
+    real base,altura,area
+inicio
+    llamar limpiar_pantalla
+    escriba "Ingrese base: "
+    lea base
+    escriba "Ingrese altura: "
+    lea altura
+    area <- base * altura / 2
+    escriba "Area del triangulo es: ",area
+    lea siga
+fin
+
+procedimiento potencia
+    entero base,exponente,potencia,i
+inicio
+    potencia <- 1
+    llamar limpiar_pantalla
+    escriba "Base: "
+    lea base
+    escriba "Exponente: "
+    lea exponente
+    para i <- 1 hasta exponente haga
+        potencia <- potencia * base
+    fin para
+    escriba base, " elevado a la ",exponente, " es ",potencia
+    lea siga
+fin
+
+procedimiento pro_par_impar
+    entero numero
+inicio    
+    escriba "Numero ? "
+    lea numero
+    escriba par_impar(numero)   
+    lea siga
+fin
+
+procedimiento menu
+    entero op
+inicio
+    repita
+            llamar limpiar_pantalla
+	    llamar posicionar_cursor(35,3)
+	    escriba "F U N C I O N E S   M A T E M A T I C A S" 
+	    llamar posicionar_cursor(50,7)
+	    escriba "1. Factorial"   
+	    llamar posicionar_cursor(50,9)
+	    escriba "2. Area de un triangulo"   
+	    llamar posicionar_cursor(50,11)
+	    escriba "3. Potencia"   
+	    llamar posicionar_cursor(50,13)
+	    escriba "4. Par/Impar"   
+	    llamar posicionar_cursor(50,15)
+	    escriba "5. Fibonaci"   
+	    llamar posicionar_cursor(50,17)
+	    escriba "6. Salir"   
+	    llamar posicionar_cursor(50,19)
+	    escriba "Elija su opcion [ ]"
+	    llamar posicionar_cursor(67,19)
+	    lea op
+            caso op
+                1 : llamar pro_factorial
+                2 : llamar area_triangulo
+                3:  llamar potencia
+                4:  llamar pro_par_impar
+                5:  escriba "Generando fibonacci"
+            fin caso
+            lea siga
+    hasta(op = 6)
+fin
+
+inicio
+    llamar menu
+fin

@@ -1,0 +1,27 @@
+arreglo[5] de entero numeros
+
+procedimiento captura(var arreglo[5] de entero lista_numeros)
+    entero i
+inicio
+    para i <- 1 hasta 5 haga
+        escriba "Numero para posicion [",i,"]: "
+        lea lista_numeros[i]
+    fin para
+fin
+
+funcion mayor(arreglo[5] de entero lista_numeros):entero
+    entero may,i
+inicio
+    may <- lista_numeros[1]
+    para i <- 2 hasta 5 haga
+        si (lista_numeros[i] > may) entonces
+            may <- lista_numeros[i]
+        fin si
+    fin para
+    retorne may
+fin
+
+inicio
+    llamar captura(numeros)
+    escriba "El numero mayor es: ",mayor(numeros)
+fin

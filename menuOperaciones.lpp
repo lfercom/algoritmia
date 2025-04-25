@@ -1,0 +1,99 @@
+caracter op
+
+procedimiento menu
+inicio
+    repita
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(25,2)
+        escriba "M E N U   P R I N C I P A L"
+        llamar posicionar_cursor(35,5)
+        escriba "(+) Suma"
+        llamar posicionar_cursor(35,7)
+        escriba "(-) Resta"
+        llamar posicionar_cursor(35,9)
+        escriba "(*) Producto"
+        llamar posicionar_cursor(35,11)
+        escriba "(/) Division"
+        llamar posicionar_cursor(35,13)
+        escriba "(m) Modulo"   
+        llamar posicionar_cursor(35,15)
+        escriba "(S) Salir"   
+        llamar posicionar_cursor(35,20)
+        escriba "Opcion [ ]"        
+        op <- validaTecla(43,20,op)
+        si (op <> 'S') entonces
+            llamar entradaDatos
+        fin si
+    hasta(op = 'S')
+    llamar chao
+fin
+
+funcion validaTecla(entero columna, entero fila, caracter op) : caracter
+inicio
+    repita
+        llamar posicionar_cursor(columna,fila)
+        lea op
+    hasta(op = '+') o (op = '-') o (op = '*') o (op = '/') o (op = 'm') o (op = 'S')
+    retorne op
+fin
+
+
+funcion operacion(entero numero1, entero numero2, caracter op): entero
+    entero resultado
+inicio
+    caso op
+        
+        '+'   : resultado <-  numero1 + numero2
+        '-'    : resultado <-  numero1 - numero2
+        '*'   : resultado <-  numero1 * numero2
+        '/'   : resultado <-  numero1 / numero2
+        'm'   : resultado <-  numero1 mod numero2
+
+    fin caso
+    retorne resultado
+fin
+
+procedimiento entradaDatos
+    entero numero1,numero2
+    caracter siga
+inicio
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(25,2)
+        escriba "E  N  T  R  A  D  A    D  E    D  A  T  O  S"
+        llamar posicionar_cursor(25,5)
+        escriba "Numero1 : "
+        llamar posicionar_cursor(25,6)
+        escriba "Numero2 : "
+        llamar posicionar_cursor(35,5)
+        lea numero1
+        llamar posicionar_cursor(35,6)
+        lea numero2
+        llamar posicionar_cursor(25,7)
+        escriba "Resultado : ",operacion(numero1,numero2,op)
+        llamar posicionar_cursor(25,9)
+        escriba "Pulse una tecla para continuar"
+        lea siga 
+fin
+
+procedimiento chao
+   entero i
+inicio
+   llamar limpiar_pantalla
+    para i <- 1 hasta 30 haga
+        llamar posicionar_cursor(i,12)
+        escriba " C H A O"
+        llamar temporizador(15000)
+    fin para
+fin
+
+procedimiento temporizador(entero tiempo)
+    entero i
+inicio
+    para i <- 1 hasta tiempo haga
+    fin para
+fin
+
+inicio
+    llamar menu
+    
+fin

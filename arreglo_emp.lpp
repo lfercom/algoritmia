@@ -1,0 +1,27 @@
+registro reg_empleado
+    cadena[12] id
+    cadena[20] nombre
+    real sueldo
+fin registro
+
+reg_empleado empleado
+
+procedimiento frm_empleado
+    caracter continuar
+inicio
+    repita
+        llamar limpiar_pantalla
+        escriba "Id.............  : "
+        lea empleado.id
+        escriba "Nombre.........  : "
+        lea empleado.nombre
+        escriba "Sueldo.......... : "
+        lea empleado.sueldo
+        escriba "Desea continuar (S/N) ? "
+        lea continuar
+    hasta(continuar = 'N') o (continuar = 'n')
+fin
+
+inicio
+    llamar frm_empleado
+fin

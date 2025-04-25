@@ -1,0 +1,95 @@
+tipo Arch_Empleados es archivo secuencial
+
+registro Registro_Empleado
+    cadena[20] id
+    cadena[30] nombre
+    cadena[50] direccion
+    cadena[20] telefono
+    cadena[50] email    
+fin registro
+
+
+Arch_Empleados archivo_empleados
+Registro_Empleado empleado
+
+procedimiento captura
+    caracter grabar,continuar
+inicio
+    abrir "e:\adsi\empleados_2.txt" como archivo_empleados para escritura
+    repita
+        llamar limpiar_pantalla
+	    escriba "Id...... : "
+	    lea empleado.id
+	    escriba "Nombre: "
+	    lea empleado.nombre
+	    escriba "Direccion: "
+	    lea empleado.direccion
+	    escriba "Telefono: "
+	    lea empleado.telefono
+	    escriba "Email: "
+	    lea empleado.email
+	    escriba "Desea almacenar el registro (S/N) ? "
+	    lea grabar
+	    si (grabar = 'S') o (grabar = 's') entonces
+	 		llamar grabar      
+	        llamar nueva_linea
+	        escriba "Registro almacenado"
+	    fin si
+	    escriba "Desea continuar (S/N) ? "
+	    lea continuar	    
+	hasta(continuar = 'N') o (continuar = 'n')
+	cerrar archivo_empleados
+fin
+
+procedimiento grabar
+inicio
+    escribir archivo_empleados,empleado.id
+	escribir archivo_empleados,empleado.nombre
+	escribir archivo_empleados,empleado.direccion
+	escribir archivo_empleados,empleado.telefono
+	escribir archivo_empleados,empleado.email
+fin
+
+
+procedimiento mostrar
+    caracter siga
+inicio
+    abrir "e:\adsi\empleados_2.txt" como archivo_empleados para lectura
+    llamar limpiar_pantalla
+    mientras no fda(archivo_empleados) haga
+        leer archivo_empleados,empleado.id
+       	leer archivo_empleados,empleado.nombre
+	    leer archivo_empleados,empleado.direccion
+	    leer archivo_empleados,empleado.telefono
+	    leer archivo_empleados,empleado.email
+	    escriba empleado.id, " ",empleado.nombre," ",empleado.direccion," ",empleado.telefono," ",empleado.email
+	    llamar nueva_linea
+    fin mientras
+    lea siga
+    cerrar archivo_empleados
+fin
+
+procedimiento menu
+    entero op
+inicio
+  
+    repita
+        llamar limpiar_pantalla
+        escriba "1.Ingreso"
+        llamar nueva_linea
+        escriba "2. Listar"
+        llamar nueva_linea
+        escriba "3.Salir"
+        llamar nueva_linea
+        escriba "Opcion ?"
+        lea op
+        caso op
+            1: llamar captura
+            2: llamar mostrar
+        fin caso        
+    hasta(op = 3)
+fin
+
+inicio
+    llamar menu
+fin

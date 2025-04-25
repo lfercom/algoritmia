@@ -1,0 +1,35 @@
+entero numeroCaracteres
+caracter simbolo,s1,s2,s3,s4,s5
+
+inicio
+   numeroCaracteres <- 0
+   
+   repita
+       escriba "Ingrese un caracter: "
+       lea simbolo
+       numeroCaracteres <- numeroCaracteres + 1
+       
+       si (simbolo = 'l') entonces
+           s1 <- 'l'
+       sino 
+           si (simbolo = 'a') entonces
+               s2 <- 'a'
+            sino
+                si (simbolo = 'p') entonces
+                    s3 <- 'p'
+                sino
+                    si (simbolo = 'i') entonces
+                        s4 <- 'i'
+                    sino
+                         si (simbolo = 'z') entonces
+                             s5 <- 'z'
+       					 fin si
+                    fin si
+                 fin si
+             fin si 
+       fin si
+   hasta((s1 = 'l') y (s2 = 'a') y (s3 = 'p') y (s4 = 'i') y (s5 = 'z'))
+   escriba "Ya se completo la palabra lapiz, se digitaron ", numeroCaracteres
+    
+
+fin

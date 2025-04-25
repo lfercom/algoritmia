@@ -1,0 +1,24 @@
+cadena[20] password,suClave
+entero i
+
+
+
+inicio
+    password <- "123"
+    i <- 1
+    llamar posicionar_cursor(30,12)
+    escriba "Ingrese su clave: "
+    llamar posicionar_cursor(45,12)
+    lea suClave
+    
+    mientras (suClave <> password) y (i <= 3) haga
+        llamar posicionar_cursor(30,20)
+        escriba "Clave invalida"
+        i <- i + 1
+        llamar posicionar_cursor(30,12)
+	    escriba "Ingrese su clave: "
+	    llamar posicionar_cursor(45,12)
+	    lea suClave
+    fin mientras
+    
+fin

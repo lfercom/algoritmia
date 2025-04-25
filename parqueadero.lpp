@@ -1,0 +1,53 @@
+cadena[6] placa
+entero TARIFA_AUTO,TARIFA_MOTO,horas,contador_autos,contador_motos,valor_pagar,total_autos,total_motos
+caracter continuar,tipo_vehiculo
+
+inicio
+    valor_pagar <- 0
+    total_autos <- 0
+    total_motos <- 0
+    TARIFA_AUTO  <- 2000
+    TARIFA_MOTO <- 1200
+    continuar <- 'S'
+    contador_autos <- 0
+    contador_motos <- 0
+    mientras (continuar = 'S') o (continuar = 's') haga
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(30,5)
+        escriba "P A R Q U E A D E RO    E L    B O G A"
+        llamar posicionar_cursor(15,8)
+        escriba "Placa............ : "
+        lea placa
+        llamar posicionar_cursor(15,10)
+       escriba "Horas.. : "
+        lea horas
+        llamar posicionar_cursor(15,12)
+        escriba "Tipo vehiculo : "
+        lea tipo_vehiculo     
+        si (tipo_vehiculo = 'A') o (tipo_vehiculo = 'a') entonces
+            valor_pagar <- horas * TARIFA_AUTO
+            contador_autos <- contador_autos + 1
+            total_autos <- total_autos + valor_pagar
+        sino 
+            valor_pagar <- horas * TARIFA_MOTO
+            contador_motos <- contador_motos + 1
+            total_motos <- total_motos + valor_pagar
+        fin si
+        llamar posicionar_cursor(15,14)
+        escriba "Valor a pagar: ",valor_pagar
+        llamar posicionar_cursor(35,20)
+        escriba "Desea continuar (S/N) [ ]"
+        llamar posicionar_cursor(58,20)
+        lea continuar
+    fin mientras
+    llamar limpiar_pantalla
+    llamar posicionar_cursor(10,5)
+    escriba "Ingresaron ", contador_autos, " autos"
+    llamar posicionar_cursor(10,6)
+    escriba "Ingresaron ", contador_motos, " motos"
+    llamar posicionar_cursor(10,8)
+    escriba "Valor recaudado autos : $",total_autos
+    llamar posicionar_cursor(10,10)
+    escriba "Valor recaudado motos : $",total_motos
+    
+fin

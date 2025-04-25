@@ -1,0 +1,25 @@
+caracter simbolo
+
+funcion tipo_simbolo(caracter simbolo):cadena[30]
+    cadena[30] resultado
+inicio
+    si (simbolo >= 'a') y (simbolo <= 'z') entonces
+        resultado <- "Minuscula"
+    sino si(simbolo >= 'A') y (simbolo <= 'Z') entonces
+        resultado <- "Mayuscula"
+    sino si(simbolo >= '0') y (simbolo <= '9') entonces
+        resultado <- "Numero"
+    sino
+        resultado <- "Otro simbolo"
+    fin si
+    fin si
+    fin si
+    retorne resultado
+fin
+
+inicio
+    escriba "Simbolo ? "
+    lea simbolo
+    llamar nueva_linea 
+    escriba "Usted ingreso: ",tipo_simbolo(simbolo)
+fin

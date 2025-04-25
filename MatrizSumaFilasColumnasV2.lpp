@@ -1,0 +1,90 @@
+arreglo[4,6] de entero numeros
+caracter car
+
+procedimiento inicializar
+    entero i, j
+inicio
+    para i <- 1 hasta 4 haga
+        para j <- 1 hasta 6 haga
+            numeros[i,j] <- 0
+        fin para
+    fin para   
+fin
+
+procedimiento captura
+    entero num,i,j,sumafila,sumaCol
+inicio
+    para i <- 1 hasta 3 haga
+        j <- 1  
+        mientras (j <= 5) haga
+            escriba "Ingrese un valor para la fila ", i, " columna: ",j, " : "
+            lea num
+            si (num mod 2 = 0) entonces
+                numeros[i,j] <- num
+                sumaCol <- sumaCol + num
+                j <- j + 1
+            fin si
+            numeros[i,j] <- sumaCol
+	fin mientras
+    fin para   
+fin
+
+funcion sumaFila(arreglo[4,6] de entero numeros,entero fila): entero
+    entero suma,j
+inicio
+   suma <- 0
+    para j <- 1 hasta 5 haga
+        suma <- suma + numeros[fila,j]
+    fin para
+    retorne suma
+fin
+
+funcion sumaColumna(arreglo[4,6] de entero numeros,entero columna): entero
+    entero suma,i
+inicio
+   suma <- 0
+    para i <- 1 hasta 3 haga
+        suma <- suma + numeros[i,columna]
+    fin para
+    
+    retorne suma
+fin
+
+procedimiento sumatoriaFila
+   entero i
+inicio
+    para i <- 1 hasta 3 haga 
+        numeros[i,6] <- sumaFila(numeros,i)
+    fin para
+fin
+
+procedimiento sumatoriaColumna
+    entero j
+inicio
+  para j <- 1 hasta 5 haga 
+        numeros[4,j] <- sumaColumna(numeros,j)
+    fin para
+fin
+
+
+procedimiento mostrar
+    entero i,j
+inicio
+    llamar limpiar_pantalla
+    para i <- 1 hasta 4 haga
+        para j <- 1 hasta 6 haga
+            escriba numeros[i,j], " "
+	    fin para
+        llamar nueva_linea
+    fin para 
+
+fin
+
+inicio
+    llamar inicializar
+    llamar captura
+    llamar limpiar_pantalla
+    llamar sumatoriaFila
+    llamar sumatoriaColumna
+    llamar mostrar	
+fin

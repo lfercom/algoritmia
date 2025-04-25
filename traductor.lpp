@@ -1,0 +1,86 @@
+arreglo[10,2] de cadena[50] diccionarioEspanolIngles
+arreglo[10,2] de cadena[50] diccionarioEspanolFrances
+arreglo[10,2] de cadena[50] diccionarioEspanolItaliano
+
+procedimiento cargarDiccionarEspanolIngles
+inicio
+	diccionarioEspanolIngles[1,1] <- "Casa"
+	diccionarioEspanolIngles[1,2] <- "House"
+	diccionarioEspanolIngles[2,1] <- "Dia"
+	diccionarioEspanolIngles[2,2] <- "Day"
+fin
+
+procedimiento cargarDiccionarEspanolFrances
+inicio
+	diccionarioEspanolFrances[1,1] <- "Amor"
+	diccionarioEspanolFrances[1,2] <- "Amour"
+	diccionarioEspanolFrances[2,1] <- "Señor"
+	diccionarioEspanolFrances[2,2] <- "Monsieur"
+fin
+
+procedimiento cargarDiccionarios
+inicio
+    llamar cargarDiccionarEspanolIngles
+    llamar cargarDiccionarEspanolFrances
+fin
+
+
+procedimiento frmDiccionario
+    entero idiomaOrigen,idiomaDestino
+    cadena[50] palabra
+inicio
+	llamar posicionar_cursor(5,5)
+	escriba "Seleccion idioma origen: 1. Español 2. Ingles 3.Frances"
+	llamar posicionar_cursor(5,7)
+	escriba "Palabra: "
+	llamar posicionar_cursor(5,9)
+	escriba "Seleccion idioma destino: 1. Español 2. Ingles 3.Frances"
+	llamar posicionar_cursor(65,5)
+	lea idiomaOrigen
+	llamar posicionar_cursor(15,7)
+	lea palabra
+	llamar posicionar_cursor(65,9)
+	lea idiomaDestino
+	llamar posicionar_cursor(5,11)
+	escriba  traducir(idiomaOrigen,idiomaDestino,palabra)
+	
+fin
+
+funcion traducir(entero idiomaOrigen,entero idiomaDestino,cadena[50] palabra): cadena[50]
+    entero colOrigen,colDestino
+    cadena[50] palabraTraducida
+inicio
+        
+    si (idiomaOrigen = 1) entonces
+    	colOrigen <- 1
+    	colDestino <- 2
+    sino
+        colOrigen <- 2
+    	colDestino <- 1
+    fin si
+    caso idiomaDestino
+        2  : palabraTraducida <- buscar(diccionarioEspanolIngles,palabra,colOrigen,colDestino)
+        3  : palabraTraducida <- buscar(diccionarioEspanolFrances,palabra,colOrigen,colDestino)
+        4  : palabraTraducida <- buscar(diccionarioEspanolItaliano,palabra,colOrigen,colDestino)
+     fin caso
+     retorne palabraTraducida    
+fin
+
+funcion buscar(arreglo[10,2] de cadena[50] diccionario, cadena[50] palabra,entero colOrigen, entero colDestino): cadena[50]
+    entero i
+inicio
+    para i <- 1 hasta 10 haga
+        si (palabra = diccionario[i,colOrigen]) entonces
+            retorne diccionario[i,colDestino]
+        fin si
+    fin para
+    retorne "Palabra no encontrada"
+fin
+
+
+inicio
+    llamar cargarDiccionarios
+    llamar frmDiccionario
+fin
+
+

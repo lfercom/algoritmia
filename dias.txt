@@ -1,0 +1,66 @@
+cadena [20] dia
+entero digito
+
+inicio
+    llamar posicionar_cursor(38,5)
+    escriba "DIAS DE LA SEMANA"
+    llamar posicionar_cursor(40,8)
+    escriba "LUNES"
+    llamar posicionar_cursor(52,8)
+    escriba "[1]"    
+    llamar posicionar_cursor(40,9)
+    escriba "MARTES"
+    llamar posicionar_cursor(52,9)
+    escriba "[2]"
+    llamar posicionar_cursor(40,10)
+    escriba "MIERCOLES"
+    llamar posicionar_cursor(52,10)
+    escriba "[3]"    
+    llamar posicionar_cursor(40,11)
+    escriba "JUEVES"
+    llamar posicionar_cursor(52,11)
+    escriba "[4]"   
+    llamar posicionar_cursor(40,12)
+    escriba "VIERNES"
+    llamar posicionar_cursor(52,12)
+    escriba "[5]"   
+    llamar posicionar_cursor(40,13)
+    escriba "SABADO"
+    llamar posicionar_cursor(52,13)
+    escriba "[6]"   
+    llamar posicionar_cursor (40,14)
+    escriba "DOMINGO"
+    llamar posicionar_cursor(52,14)
+    escriba "[7]"
+    llamar posicionar_cursor (33,16)
+    escriba "INGRESE EL NUMERO DEL DIA DE HOY [ ]"
+    llamar posicionar_cursor (67,16)
+    lea digito
+    llamar limpiar_pantalla
+    si (digito >= 1) y (digito <= 7) entonces
+        si (digito = 1)  entonces
+           dia <- "Lunes"
+        sino si (digito = 2) entonces
+           dia <- "Martes"
+        sino si (digito =3) entonces
+           dia <- "Miercoles"
+        sino si (digito = 4) entonces
+           dia <- "Jueves"
+        sino si (digito = 5) entonces
+           dia <- "Viernes"
+        sino si (digito = 6) entonces
+           dia <- "Sabado"
+        sino 
+           dia <- "Domingo"
+        fin si
+        fin si
+        fin si
+        fin si
+        fin si
+        fin si
+        escriba "Hoy es ",dia
+    sino 
+        llamar posicionar_cursor(38,5)
+        escriba "Por favor ingrese un número valido"
+    fin si 
+fin

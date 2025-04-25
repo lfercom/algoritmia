@@ -1,0 +1,11 @@
+entero numero,factorial,i
+
+inicio
+    escriba "Numero ? "
+    lea numero
+    factorial <- 1
+    para i <- 1 hasta numero haga
+        factorial <- factorial * i
+    fin para 
+    escriba "Factorial de ",numero," = ",factorial
+fin

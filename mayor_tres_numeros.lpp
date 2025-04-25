@@ -1,0 +1,31 @@
+entero numero1,numero2,numero3
+
+inicio
+	escriba "Numero1 : "
+	lea numero1
+	escriba "Numero2 : "
+	lea numero2
+	escriba "Numero3 : "
+	lea numero3
+	si (numero1 = numero2) y (numero1 = numero3) entonces
+		escriba "Los numeros son iguales"
+	sino 
+	    si (numero1 > numero2) y (numero1 > numero3) entonces
+		    escriba "El numero mayor es ",numero1
+	    sino si (numero2 > numero3) entonces
+		    escriba "El numero mayor es ",numero2
+		sino
+			escriba "El numero mayor es ", numero3
+	    fin si
+	    fin si
+	    llamar nueva_linea
+	    si (numero1 < numero2) y (numero1 < numero3) entonces
+			escriba "El numero menor es ",numero1
+		sino si(numero2 < numero3) entonces
+			escriba "El numero menor es ",numero2
+		sino
+			escriba "El numero menor es ",numero3
+		fin si
+		fin si
+		fin si		
+fin	

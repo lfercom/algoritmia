@@ -1,0 +1,21 @@
+entero a,b
+
+procedimiento intercambio(var entero n1, var entero n2)
+    entero aux
+inicio  
+    aux <- n1
+    n1    <- n2
+    n2    <- aux
+   
+fin
+
+inicio
+    escriba "Ingresr valor para a: "
+    lea a
+    escriba "Ingresr valor para b: "
+    lea b
+    llamar intercambio(a,b)
+    escriba "a = ",a
+    llamar nueva_linea
+    escriba "b = ",b
+fin

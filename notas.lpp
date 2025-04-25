@@ -1,0 +1,39 @@
+real nota1,nota2,nota3,promedio,promedio_gral
+entero aprobados,no_aprobados
+cadena[30] nombre
+caracter continuar
+
+inicio
+   promedio_gral <- 0
+   aprobados <- 0
+   no_aprobados <- 0
+   repita
+       llamar limpiar_pantalla
+       escriba "Nomnbre: "
+       lea nombre
+       escriba "Nota1: "
+       lea nota1
+       escriba "Nota2: "
+       lea nota2
+       escriba "Nota3: "
+       lea nota3
+       promedio <- (nota1 + nota2 + nota3) / 3
+       promedio_gral <- promedio_gral + promedio
+       si (promedio >= 3.5) entonces
+           escriba nombre, " su promedio es: ", promedio, " usted APROBO"
+           aprobados <- aprobados + 1
+       sino
+           escriba nombre, " su promedio es: ", promedio, " usted NO APROBO"
+           no_aprobados <- no_aprobados + 1
+       fin si
+       llamar nueva_linea
+       escriba "Desea continuar (S/N)"
+       lea continuar           
+   hasta (continuar = 'N') o (continuar = 'n')
+   promedio_gral <- promedio_gral / (aprobados + no_aprobados)
+   escriba "Aprobados: ", aprobados
+   llamar nueva_linea
+   escriba "No aprobados: ", no_aprobados
+   llamar nueva_linea
+   escriba "Promedio grupo: ",promedio_gral
+fin

@@ -1,0 +1,16 @@
+entero penultimo,ultimo,siguiente,i
+
+inicio
+    penultimo <- 0
+    ultimo <- 1
+    siguiente <-  0
+    i <- 1
+    mientras(i <= 5) haga
+        escriba siguiente
+        llamar nueva_linea
+        penultimo <- ultimo
+        ultimo <- siguiente
+        siguiente <- ultimo + penultimo
+        i <- i + 1
+    fin mientras
+fin

@@ -1,0 +1,19 @@
+entero tabla1,tabla2,i,j,producto
+caracter continuar
+
+inicio
+    escriba "Tabla 1 ? "
+    lea tabla1
+    escriba " Tabla 2 ? "
+    lea tabla2
+    para i <- tabla1 hasta tabla2 haga
+       llamar limpiar_pantalla
+        para j <- 1 hasta 10 haga
+        	producto <- i * j
+            escriba i, " x ", j, " = ", producto            
+           llamar nueva_linea
+        fin para
+        escriba "Presione una tecla para continuar..."
+        lea continuar
+    fin para
+fin

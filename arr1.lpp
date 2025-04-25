@@ -1,0 +1,9 @@
+arreglo[10] de entero numeros
+entero i
+
+inicio
+    para i <- 1 hasta 10 haga
+        escriba "Ingrese numero para posicion ",i, ": "
+        lea numeros[i]
+    fin para    
+fin

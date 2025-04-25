@@ -1,0 +1,14 @@
+cadena[20] nombre,hobby
+entero edad
+
+inicio
+    escriba "Nombre: "
+    lea nombre
+    escriba "Hobby : "
+    lea hobby
+    escriba "Edad  : "
+    lea edad
+    llamar nueva_linea
+    llamar nueva_linea
+    escriba "Hola ",nombre," te gusta: ",hobby," y tienes ",edad, " años "
+fin

@@ -1,0 +1,122 @@
+tipo Arch es archivo secuencial
+
+registro RegProveedor 
+	entero codigo
+	cadena[30] nombre
+	cadena[50] direccion
+	cadena[20] telefono
+	cadena[30] email
+fin registro
+
+
+Arch archivoProveedor
+RegProveedor proveedor
+caracter op
+
+procedimiento menu
+inicio
+	llamar limpiar_pantalla
+	llamar posicionar_cursor(25,2)
+	escriba "M E N U  P R I N C I P A L"
+	llamar posicionar_cursor(25,5)
+	escriba "1. REGISTRO DE PROVEEDORES"
+	llamar posicionar_cursor(25,7)
+	escriba "2. CONSULTA DE PROVEEDORES"
+	llamar posicionar_cursor(25,9)
+	escriba "3. SALIR"
+	llamar posicionar_cursor(30,14)
+	escriba "Opcion [ ]"
+	op <- lee_op(38,14)	
+fin
+
+procedimiento frm_captura
+	caracter siga
+inicio
+	abrir "D:\Luis Fernando Corredor\ADSI\MODULOS\ALGORITMIA\LPP\Mis programas\proveedor.txt" como archivoProveedor para escritura
+	repita
+		llamar limpiar_pantalla
+		llamar posicionar_cursor(25,5)
+		escriba "I N G R E S O   D E   P R O V E E D O R E S"
+		llamar posicionar_cursor(5,8)
+		escriba "Codigo...... :"
+		llamar posicionar_cursor(5,9)
+		escriba "Razon social :"
+		llamar posicionar_cursor(5,10)
+		escriba "Direccion..  :"
+		llamar posicionar_cursor(5,11)
+		escriba "Telefono.... :"
+		llamar posicionar_cursor(5,12)
+		escriba "Email......  :"
+		llamar posicionar_cursor(20,8)
+		lea proveedor.codigo
+		llamar posicionar_cursor(20,9)
+		lea proveedor.nombre
+		llamar posicionar_cursor(20,10)
+		lea proveedor.direccion
+		llamar posicionar_cursor(20,11)
+		lea proveedor.telefono
+		llamar posicionar_cursor(20,12)
+		lea proveedor.email	
+		llamar posicionar_cursor(15,20)
+		escriba "Desea ingresar un nuevo proveedor (S/N) ? "
+		lea siga
+		llamar grabar(proveedor)
+	hasta(siga = 'N') o (siga = 'n')
+	cerrar archivoProveedor
+fin	
+
+procedimiento frm_consulta
+	caracter siga
+inicio
+	abrir "D:\Luis Fernando Corredor\ADSI\MODULOS\ALGORITMIA\LPP\Mis programas\proveedor.txt" como archivoProveedor para lectura
+	llamar limpiar_pantalla
+	llamar posicionar_cursor(25,1)
+	escriba "L I S T A D O   D E   P R O V E E D O R E S"
+	llamar nueva_linea
+	llamar nueva_linea
+	mientras no fda(archivoProveedor) haga
+		leer archivoProveedor, proveedor.codigo
+		leer archivoProveedor, proveedor.nombre
+		leer archivoProveedor, proveedor.direccion
+		leer archivoProveedor, proveedor.telefono
+		leer archivoProveedor, proveedor.email
+		escriba proveedor.codigo," ",proveedor.nombre," ",proveedor.direccion," ",proveedor.telefono," ",proveedor.email
+		llamar nueva_linea
+	fin mientras
+	lea siga
+	cerrar archivoProveedor
+fin
+
+procedimiento grabar(RegProveedor proveedor)
+inicio
+	escribir archivoProveedor, proveedor.codigo
+	escribir archivoProveedor, proveedor.nombre
+	escribir archivoProveedor, proveedor.direccion
+	escribir archivoProveedor, proveedor.telefono
+	escribir archivoProveedor, proveedor.email
+fin
+
+procedimiento elijeOpcion
+inicio
+	caso op
+		'1' : llamar frm_Captura
+	    '2' : llamar frm_consulta
+	fin caso
+fin
+
+funcion lee_op(entero col, entero fil): caracter
+	caracter op
+inicio
+	repita
+		llamar posicionar_cursor(col,fil)
+	    lea op
+	hasta(op >= '1') y (op <= '3')
+	retorne op
+fin
+
+inicio
+	repita
+		llamar menu
+		llamar elijeOpcion
+	hasta(op = '3')
+fin

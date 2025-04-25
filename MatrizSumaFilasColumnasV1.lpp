@@ -1,0 +1,52 @@
+arreglo[4,4] de entero arr
+
+procedimiento captura(var arreglo[4,4] de entero arr)
+	entero i,j
+inicio
+	para i <- 1 hasta 3 haga
+		para j <- 1 hasta 3 haga
+			escriba "Ingrese numero para fila ", i, " columna ", j, " :"
+			lea arr[i,j]
+		fin para
+	fin para
+fin
+
+
+
+procedimiento mostrar(arreglo[4,4] de entero arr)
+	entero i,j
+inicio
+	llamar limpiar_pantalla
+	para i <- 1 hasta 4 haga
+		para j <- 1 hasta 4 haga
+			escriba arr[i,j], " "
+		fin para
+		llamar nueva_linea
+	fin para
+fin
+
+procedimiento suma(var arreglo[4,4] de entero arr)
+	entero i,j,sumaFila,sumaColumna,sumaTotal
+inicio
+	sumaTotal <- 0
+	para i <- 1 hasta 3 haga
+		sumaFila <- 0
+		sumaColumna <- 0
+		para j <- 1 hasta 3 haga
+			sumaFila <- sumaFila + arr[i,j]
+			sumaColumna <- sumaColumna + arr[j,i]
+		fin para
+			arr[i,j] <- sumaFila
+			arr[j,i] <- sumaColumna
+			sumaTotal <- sumaTotal + sumaFila
+	fin para
+	arr[i,j] <- sumaTotal
+fin
+
+
+
+inicio
+	llamar captura(arr)
+	llamar suma(arr)
+	llamar mostrar(arr)
+fin

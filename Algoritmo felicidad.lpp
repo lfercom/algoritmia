@@ -1,0 +1,17 @@
+cadena[2] respuesta
+
+inicio
+    escriba "Eres feliz (Si/No) ? "
+    lea respuesta
+    si (respuesta = "Si") entonces
+        escriba "Sigue haciendo lo mismo"
+    sino
+       escriba "¿Quieres ser feliz ? "
+       lea respuesta
+       si (respuesta = "Si") entonces
+           escriba "Cambia algo"
+       sino	
+           escriba "Sigue haciendo lo mismo"
+       fin si
+    fin si
+fin

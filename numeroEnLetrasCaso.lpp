@@ -1,0 +1,32 @@
+cadena[30] numeroEnLetras
+caracter numero,siga
+
+inicio
+    llamar posicionar_cursor(5,5)
+    escriba "Numero: "
+    llamar posicionar_cursor(15,5)
+    lea numero
+    mientras(numero >= '0') y (numero <= '9') haga
+       caso numero
+       
+           '0' : numeroEnLetras <- "Cero"
+           '1' : numeroEnLetras <- "Uno"
+           '2' : numeroEnLetras <- "Dos"
+		   '3' : numeroEnLetras <- "Tres"
+           '4' : numeroEnLetras <- "Cuatro"
+           '5' : numeroEnLetras <- "Cinco"
+           '6' : numeroEnLetras <- "Seis"
+           '7' : numeroEnLetras <- "Siete"
+           '8' : numeroEnLetras <- "Ocho"
+		   '9' : numeroEnLetras <- "Nueve"
+        fin caso
+        llamar posicionar_cursor(20,20)
+        escriba "Usted digito el numero ",numeroEnLetras
+        lea siga
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(5,5)
+   		escriba "Numero: "
+        llamar posicionar_cursor(15,5)
+        lea numero
+    fin mientras
+fin

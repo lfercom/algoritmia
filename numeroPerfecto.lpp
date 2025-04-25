@@ -1,0 +1,25 @@
+arreglo[4] de entero primo
+entero numero
+
+procedimiento iniciarPrimos
+inicio
+	primo[1] <- 2
+	primo[2] <- 3
+	primo[3] <- 5
+	primo[4] <- 7
+fin
+
+funcion perfecto(entero n):entero
+	entero numeroPerfecto,i
+inicio	
+	retorne	numeroPerfecto <- (2^ (primo[n]-1)) * (2 ^ primo[n] -1)
+fin
+
+inicio
+	llamar iniciarPrimos
+	escriba "Ingrese numero: "
+	lea numero
+	si (numero > 0) entonces
+		escriba "El numero perfecto es: ",perfecto(numero)
+	fin si
+fin

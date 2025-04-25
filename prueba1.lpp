@@ -1,0 +1,66 @@
+//Autor: ADSI 1095971
+//Fecha: 14-07-2016
+//Descripcion: Captura y almacenamiento de numeros pares e impares
+
+arreglo[20] de entero pares
+arreglo[20] de entero impares
+entero tamano
+
+procedimiento captura
+	entero numero,i,j
+	caracter siga
+inicio
+	i <- 0
+	j <- 0
+	
+	escriba "Ingrese tamano de los vectores (valor minimo 1, naximo 20): "
+	lea tamano
+	si (tamano >= 1) y (tamano <=20) entonces
+		repita
+			llamar limpiar_pantalla
+			llamar posicionar_cursor(25,5)
+			escriba "Ingrese numero : "
+			llamar posicionar_cursor(45,5)
+			lea numero	
+			si (numero mod 2 = 0) entonces
+			    si (i < tamano) entonces
+					i <- i + 1
+					pares[i] <- numero
+				sino
+					llamar posicionar_cursor(20,20)
+					escriba "VECTOR PARES ESTA LLENO"
+					lea siga
+				fin si
+			sino
+				si(j < tamano) entonces
+					j <- j + 1
+					impares[j] <- numero	
+				sino
+					llamar posicionar_cursor(20,20)
+					escriba "VECTOR IMPARES ESTA LLENO"
+					lea siga
+				fin si
+			fin si	
+
+		hasta(i = tamano) y (j = tamano)
+	fin si
+fin
+
+procedimiento mostrar
+	entero i
+inicio
+	llamar limpiar_pantalla
+	llamar posicionar_cursor(25,5)
+	escriba "PARES         IMPARES"
+	para i <- 1 hasta tamano haga
+		llamar posicionar_cursor(26,5+i)
+		escriba pares[i]
+		llamar posicionar_cursor(40,5+i)
+		escriba impares[i]
+	fin para
+fin
+
+inicio
+	llamar captura
+	llamar mostrar
+fin

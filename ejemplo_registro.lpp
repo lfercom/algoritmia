@@ -1,0 +1,63 @@
+registro reg_aprendiz
+    entero id
+    cadena[50] nombre
+    cadena[50] direccion
+    entero horas_trabajadas
+    entero tarifa_hora
+    entero sueldo
+    entero descuento
+fin registro
+
+reg_aprendiz aprendiz
+
+procedimiento captura
+    caracter siga
+inicio
+repita
+	    llamar limpiar_pantalla
+	    escriba "Id......   : "
+	    lea aprendiz.id
+	    escriba "Nombre..   : "
+	    lea aprendiz.nombre
+	    escriba "Direccion. : "
+	    lea aprendiz.direccion
+	    escriba "Horas trabajadas... : "
+	    lea aprendiz.horas_trabajadas
+            escriba "Tarifa hora... : "
+	    lea aprendiz.tarifa_hora
+            aprendiz.sueldo <- aprendiz.horas_trabajadas * aprendiz.tarifa_hora
+	    escriba "Sueldo : ",aprendiz.sueldo
+            si (aprendiz.sueldo <= 1000000) entonces
+                aprendiz.descuento <- aprendiz.sueldo * 0.02
+            sino si(aprendiz.sueldo <= 1500000) entonces
+                aprendiz.descuento <- aprendiz.sueldo * 0.03
+            sino si(aprendiz.sueldo <= 1700000) entonces
+                aprendiz.descuento <- aprendiz.sueldo * 0.05
+            sino si(aprendiz.sueldo <= 1900000) entonces
+                aprendiz.descuento <- aprendiz.sueldo * 0.07
+            sino
+                aprendiz.descuento <- aprendiz.sueldo * 0.1
+            fin si
+            fin si
+            fin si
+            fin si
+	    escriba "Desea continuar (S/N) ? "
+	    lea siga
+    hasta(siga = 'N') o (siga = 'n')
+fin
+
+procedimiento mostrar
+inicio
+    llamar limpiar_pantalla
+    escriba "Id...... : ",aprendiz.id
+    llamar nueva_linea
+    escriba "Nombre... : ",aprendiz.nombre
+    llamar nueva_linea
+    escriba "Direccion : ",aprendiz.direccion
+    llamar nueva_linea
+    escriba "Sueldo... : ",aprendiz.sueldo
+fin
+
+inicio
+	llamar captura
+fin

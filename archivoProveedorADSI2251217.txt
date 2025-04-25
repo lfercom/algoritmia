@@ -1,0 +1,112 @@
+tipo archivo_proveedor es archivo secuencial 
+
+registro reg_prov
+    cadena [10] codigo
+    cadena [50] raz_social
+    cadena [50] direccion
+    cadena [20] telefono
+    cadena [50] email
+fin registro
+
+archivo_proveedor file_proveedor
+reg_prov registro_proveedor
+caracter siga
+	
+procedimiento menu
+    caracter opcion
+inicio
+    repita
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(49,4)
+        escriba "M E N U   P R I N C I P A L"
+        llamar posicionar_cursor(50,7)
+        escriba "1. REGISTRO PROVEEDORES"
+        llamar posicionar_cursor(50,9)
+        escriba "2. CONSULTAR PROVEEDORES"
+        llamar posicionar_cursor(50,11)
+        escriba "3. SALIR"
+        llamar posicionar_cursor(50,17)
+        escriba "Elija una opcion [ ] "
+        llamar posicionar_cursor(49,17)
+        lea opcion
+        caso opcion
+                '1' : llamar prov_registro(registro_proveedor)
+                '2' : llamar prov_consulta
+            fin caso
+    hasta (opcion = '3')
+    lea siga
+fin
+
+procedimiento prov_registro(reg_prov proveedor)
+caracter siga
+
+inicio
+ 
+    abrir "D:\Escritorio\Algoritmos\EVIDENCIA 9\proveedor.txt" como file_proveedor para escritura 
+    siga <-'S'
+    mientras (siga='S') o (siga='s') haga
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(35,5)
+        escriba "I N G R E S O   D E   P R O V E D O R E S"
+        llamar posicionar_cursor (4,8)
+        escriba "Codigo.........: "
+        llamar posicionar_cursor (4,9)
+        escriba "Razon social...: " 
+        llamar posicionar_cursor (4,10)
+        escriba "Direccion......: "
+        llamar posicionar_cursor (4,11)
+        escriba "Telefono.......: "
+        llamar posicionar_cursor (4,12)
+        escriba "Email..........: "
+        llamar posicionar_cursor (21,8)
+        lea proveedor.codigo
+        llamar posicionar_cursor (21,9)
+        lea proveedor.raz_social
+        llamar posicionar_cursor (21,10)
+        lea proveedor.direccion
+        llamar posicionar_cursor (21,11)
+        lea proveedor.telefono
+        llamar posicionar_cursor (21,12)
+        lea proveedor.email
+        llamar grabar(proveedor)
+        llamar posicionar_cursor (4,13)
+        escriba "Desea continuar (S/N)?"
+        lea siga 
+    fin mientras 
+    cerrar file_proveedor
+fin
+
+procedimiento grabar(reg_prov proveedor)
+inicio
+    escribir file_proveedor,proveedor.codigo
+    escribir file_proveedor,proveedor.raz_social
+    escribir file_proveedor,proveedor.direccion
+    escribir file_proveedor,proveedor.telefono
+    escribir file_proveedor,proveedor.email
+fin
+
+procedimiento prov_consulta
+
+inicio
+    abrir "C:\Proveedores\proveedores.txt" como file_proveedor para lectura
+    llamar limpiar_pantalla
+    llamar posicionar_cursor(25,1)
+    escriba "L I S T A  D E  P R O V E E D O R E S"
+    llamar nueva_linea
+    llamar nueva_linea
+    mientras no fda(file_proveedor)haga
+         leer file_proveedor,proveedor.codigo
+         leer file_proveedor,proveedor.raz_social
+         leer file_proveedor,proveedor.direccion
+         leer file_proveedor,proveedor.telefono
+         leer file_proveedor,proveedor.email
+         escriba proveedor.codigo, " ",proveedor.raz_social, " ",proveedor.direccion, " ",proveedor.telefono, " ",proveedor.email
+         llamar nueva_linea
+     lea siga
+     fin mientras
+     cerrar file_proveedor
+fin
+        
+inicio 
+    llamar menu
+fin

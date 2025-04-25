@@ -1,0 +1,82 @@
+arreglo[3,2] de cadena[50] espanol_ingles
+arreglo[3,2] de cadena[50] espanol_frances
+arreglo[3,2] de cadena[50] espanol_italiano
+
+procedimiento menu_principal
+    entero op
+inicio
+    repita
+        llamar limpiar_pantalla
+        escriba "1. Ingresar palabras"
+        llamar nueva_linea
+        escriba "2. Traducir"
+        llamar nueva_linea
+        escriba "3. Cantidad palabras"
+        llamar nueva_linea
+        escriba "4. Salir"
+        llamar nueva_linea
+        escriba "Opcion ? "
+        lea op
+        caso op 
+            1: llamar menu_diccionario
+        fin caso   
+    hasta(op = 4)
+fin
+
+procedimiento menu_diccionario
+    entero op
+    caracter siga
+inicio
+    repita 
+	    llamar limpiar_pantalla
+	    escriba "1. Español/Ingles"
+	    llamar nueva_linea
+	    escriba "2. Español/Frances"
+	    llamar nueva_linea
+	    escriba "3. Español/Italiano"
+	    llamar nueva_linea
+	    escriba "4. Salir"
+	    llamar nueva_linea
+	    escriba "Opcion ? "
+	    lea op
+	    caso op
+	        1: llamar ingreso_diccionario(espanol_ingles,"ingles")
+	        2: llamar ingreso_diccionario(espanol_frances,"frances")
+	        2: llamar ingreso_diccionario(espanol_italiano,"italiano")
+	    fin caso   
+	    lea siga
+    hasta(op = 4)
+fin
+
+
+procedimiento ingreso_diccionario(var arreglo[3,2] de cadena[50] diccionario,cadena[20] idioma)
+    entero i
+    caracter continuar
+inicio
+    i <- 1
+    repita
+        llamar limpiar_pantalla
+        escriba "Ingrese paralabra en español: "
+        lea diccionario[i,1]
+        escriba "Ingrese paralabra en ",idioma, " : "
+        lea diccionario[i,2]
+        i <- i + 1
+        llamar nueva_linea
+        escriba "Desea ingresar otra palabra (S/N) ? "
+        lea continuar       
+    hasta(continuar = 'N') o (continuar = 'n') o (i = 4)
+fin
+
+
+procedimiento mostrar(arreglo[3,2] de cadena[50] diccionario)
+    entero i
+inicio
+    para i <- 1 hasta 3 haga
+        escriba diccionario[i,1]," ",diccionario[i,2]
+        llamar nueva_linea
+    fin para
+fin
+
+inicio
+    llamar menu_principal
+fin

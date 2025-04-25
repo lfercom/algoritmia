@@ -1,0 +1,24 @@
+cadena[20] nombre
+entero horas_trabajadas
+real valor_hora,descuento,sueldo,salario
+
+inicio
+    escriba "Nombre: "
+    lea nombre
+    escriba "Horas trabajadas: "
+    lea horas_trabajadas
+    escriba "Valor hora: "
+    lea valor_hora
+    sueldo <- horas_trabajadas * valor_hora
+    si (sueldo <= 1000000) entonces
+        descuento <- sueldo * 0.03
+    sino
+        descuento <- sueldo * 0.05
+    fin si
+    salario <- sueldo - descuento
+    escriba "Sueldo: $",sueldo
+    llamar nueva_linea
+    escriba "Descuento: $",descuento
+    llamar nueva_linea
+    escriba "Salario: $",salario
+fin  

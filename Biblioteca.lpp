@@ -1,0 +1,121 @@
+registro reg_libro
+    cadena[20] codigo
+    cadena[50] titulo
+    cadena[30] autor
+    entero ayo 
+    cadena[30] editorial
+    cadena[50] genero    
+fin registro
+
+registro reg_estudiante
+    cadena[20] id
+    cadena[50] nombre 	
+    cadena[30] direccion
+    entero telefono
+    cadena[30] institucion
+fin registro
+
+reg_estudiante estudiante
+reg_libro libro
+
+arreglo[5] de reg_estudiante lista_estudiantes
+arreglo[5] de reg_libro      lista_libros
+
+procedimiento ingreso_estudiante1
+    caracter siga
+inicio
+    siga <- 'S'
+    mientras(siga = 'S') o (siga = 's') haga
+       llamar limpiar_pantalla
+       escriba "Id................ : "
+       lea estudiante.id
+       escriba "Nombre............ : "
+       lea estudiante.nombre
+       escriba "Direccion......... : "
+       lea estudiante.direccion
+       escriba "Telefono........ . : "
+       lea estudiante.telefono
+       escriba "Institucion..... . : "
+       lea estudiante.institucion
+       llamar nueva_linea
+       escriba "Desea ingresar otro estudiante (S/N) ? "
+       lea siga
+    fin mientras
+fin
+
+procedimiento ingreso_estudiantes2
+    entero i
+inicio
+   
+   para i <- 1 hasta 5 haga
+       llamar limpiar_pantalla
+       escriba "Id................ : "
+       lea lista_estudiantes[i].id
+       escriba "Nombre............ : "
+       lea lista_estudiantes[i].nombre
+       escriba "Direccion......... : "
+       lea lista_estudiantes[i].direccion
+       escriba "Telefono........ . : "
+       lea lista_estudiantes[i].telefono
+       escriba "Institucion..... . : "
+       lea lista_estudiantes[i].institucion
+       llamar nueva_linea
+    fin para
+fin
+
+procedimiento ingreso_libros
+    entero i
+inicio
+   
+   para i <- 1 hasta 5 haga
+       llamar limpiar_pantalla
+       escriba "Codigo............ : "
+       lea lista_libros[i].codigo
+       escriba "Titulo............ : "
+       lea lista_libros[i].titulo      
+       llamar nueva_linea
+    fin para
+fin
+
+procedimiento mostrar_estudiantes
+    entero i
+    caracter esperar
+inicio
+   llamar limpiar_pantalla
+   para i <- 1 hasta 5 haga
+       escriba lista_estudiantes[i].id,"  ",lista_estudiantes[i].nombre,"  ",lista_estudiantes[i].direccion,"  ",lista_estudiantes[i].telefono,"  ",lista_estudiantes[i].institucion
+       llamar nueva_linea
+    fin para
+    lea esperar
+fin
+
+
+procedimiento menu
+    entero opcion
+inicio
+    repita
+        llamar limpiar_pantalla
+        escriba ("1. Ingreso estudiantes")
+        llamar nueva_linea
+        escriba ("2. Listar estudiantes")
+        llamar nueva_linea
+        escriba ("3. Ingreso libros")
+        llamar nueva_linea
+        escriba ("4. Reporte prestamos")
+        llamar nueva_linea
+        escriba ("5. Salir")
+        llamar nueva_linea
+        escriba ("Elija una opcion ? ")
+        lea opcion
+        caso opcion
+            1: llamar ingreso_estudiantes2
+            2: llamar mostrar_estudiantes
+            3: llamar ingreso_libros
+        fin caso
+    hasta(opcion = 5)
+fin
+
+inicio
+   llamar menu
+fin
+

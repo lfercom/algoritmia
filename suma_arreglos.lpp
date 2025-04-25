@@ -1,0 +1,36 @@
+arreglo[5] de entero lista_numeros1
+arreglo[5] de entero lista_numeros2
+arreglo[5] de entero lista_suma
+
+procedimiento ingreso(var arreglo[5] de entero lista)
+    entero i
+inicio
+    llamar limpiar_pantalla
+    para i <- 1 hasta 5 haga
+        escriba "Ingrese numero: "
+        lea lista[i]
+    fin para
+fin
+
+procedimiento suma(arreglo[5] de entero lista1,arreglo[5] de entero lista2, var arreglo[5] de entero lista3)
+   entero i
+inicio
+    para i <- 1 hasta 5 haga
+        lista3[i] <- lista1[i] + lista2[i]
+    fin para
+fin
+
+procedimiento mostrar(arreglo[5] de entero lista)
+   entero i
+inicio
+    llamar limpiar_pantalla
+    para i <- 1 hasta 5 haga
+        escriba lista[i]
+    fin para
+fin
+
+inicio
+    llamar ingreso(lista_numeros1)
+    llamar ingreso(lista_numeros2)
+    llamar suma(lista_numeros1,lista_numero2,lista_ numero3)
+fin

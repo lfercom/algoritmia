@@ -1,0 +1,17 @@
+entero kilometros
+real cargo_fijo,total_pagar
+
+inicio
+    cargo_fijo <- 100000
+    escriba "Kilometros ? "
+    lea kilometros
+    si (kilometros <= 300) entonces
+        total_pagar <- cargo_fijo
+    sino si (kilometros <= 1000) entonces
+        total_pagar <- (kilometros * 1500) + cargo_fijo
+    sino
+        total_pagar <- (kilometros * 1000) + cargo_fijo
+    fin si
+    fin si
+    escriba "Total pagar: $",total_pagar
+fin

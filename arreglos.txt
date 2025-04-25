@@ -1,0 +1,57 @@
+arreglo[5] de entero listaNumeros1
+arreglo[5] de entero listaNumeros2
+arreglo[5] de entero listaNumeros3
+
+procedimiento captura(var arreglo[5] de entero lista,cadena[30] mensaje)
+    entero i
+inicio
+    llamar limpiar_pantalla
+    llamar posicionar_cursor(25,5)
+    escriba mensaje
+    llamar nueva_linea
+    para i <- 1 hasta 5 haga
+        escriba "Ingrese numero[", i, "]:"
+        lea lista[i]
+    fin para
+fin
+
+procedimiento pSuma(arreglo[5] de entero lista1, arreglo[5] de entero lista2,var arreglo[5] de entero lista3)
+   entero i
+inicio
+    para i <- 1 hasta 5 haga
+        lista3[i] <- lista1[i] + lista2[i]
+    fin para
+fin
+
+funcion fSuma(arreglo[5] de entero lista1, arreglo[5] de entero lista2): arreglo[5] de entero
+    arreglo[5] de entero lista
+    entero i
+inicio
+    para i <- 1 hasta 5 haga
+        lista[i] <- lista1[i] + lista2[i]
+    fin para
+    retorne lista
+fin
+
+
+procedimiento mostrar
+    entero i
+inicio
+    llamar limpiar_pantalla
+    para i <- 1 hasta 3 haga
+        llamar posicionar_cursor(10,i+5)
+        escriba listaNumeros1[i]
+        llamar posicionar_cursor(20,i+5)
+        escriba listaNumeros2[i]
+        llamar posicionar_cursor(30,i+5)
+        escriba listaNumeros3[i]
+    fin para
+fin
+
+inicio
+    llamar captura(listaNumeros1,"CAPTURANDO ARREGLO LISTANUMEROS1")
+    llamar captura(listaNumeros2,"CAPTURANDO ARREGLO LISTANUMEROS2")
+    //llamar suma(listaNumeros1,listaNumeros2,listaNumeros3)
+    listaNumeros3 <- fSuma(listaNumeros1,listaNumeros2)
+    llamar mostrar
+fin

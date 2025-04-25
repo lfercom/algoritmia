@@ -1,0 +1,62 @@
+entero nivel,horas,contAutomoviles,contMotos,acumAutoNivel3,acumAutoNivel4,acumAutoNivel5,acumAutoNivelS,acumMotos
+caracter continuar,espera,tipoVehiculo
+
+inicio
+    continuar <- 's'
+    contAutomoviles <- 0
+    contMotos <- 0
+    acumAutoNivel3 <- 0
+    acumAutoNivel4 <- 0
+    acumAutoNivel5 <- 0
+    acumAutoNivelS <- 0
+    acumMotos <- 0
+    mientras (continuar <> 'n') y (continuar <> 'N') haga
+        escriba "Tipo vehiculo (A automovil - M moto) : "
+        lea tipoVehiculo
+        escriba "Horas:  "
+        lea horas
+         si (tipoVehiculo = 'A') entonces
+            contAutomoviles <- contAutomoviles + 1
+            escriba "Nivel (3 al 10) ? "
+            lea nivel
+            si (nivel = 3) entonces
+                acumAutoNivel3 <- acumAutoNivel3 + 1200 * horas
+            sino si (nivel = 4) entonces
+                acumAutoNivel4 <- acumAutoNivel4 + 1200 * horas
+            sino si (nivel = 5) entonces
+                acumAutoNivel5 <- acumAutoNivel5 + 1200 * horas
+            sino si (nivel >= 6) y (nivel <= 10) entonces
+                acumAutoNivelS <- acumAutoNivelS + 1000 * horas
+            sino
+                escriba "Nivel no existe"
+            fin si
+            fin si
+            fin si
+            fin si 
+        sino si(tipoVehiculo = 'M') entonces
+            contMotos  <- contMotos + 1
+            acumMotos <- acumMotos  + 800 * horas
+        sino
+            llamar limpiar_pantalla
+            llamar posicionar_cursor(25,12)
+            escriba "Tipo vehiculo no existe. Pulse una tecla para continuar"
+            lea espera
+        fin si
+        fin si
+        escriba "Desea continuar (S/N) ? "
+        lea continuar
+    fin mientras
+    escriba "Automoviles: ", contAutomoviles
+    llamar nueva_linea
+    escriba "Dinero recaudado autos nivel3 : ", acumAutoNivel3
+    llamar nueva_linea
+    escriba "Dinero recaudado autos nivel4 : ", acumAutoNivel4
+    llamar nueva_linea
+    escriba "Dinero recaudado autos nivel5 : ", acumAutoNivel5
+    llamar nueva_linea
+    escriba "Dinero recaudado autos nivelS : ", acumAutoNivelS
+    llamar nueva_linea
+    escriba "Motos.............. : ",contMotos
+    llamar nueva_linea
+    escriba "Dinero recaudado motos : ", acumMotos
+fin 

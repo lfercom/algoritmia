@@ -1,0 +1,13 @@
+entero tabla,i,producto
+
+inicio
+    i <- 1
+    escriba "Tabla: "
+    lea tabla
+    repita
+        producto <- tabla * i
+        escriba tabla, " x ", i, " = ",producto
+        llamar nueva_linea
+        i <- i + 1
+    hasta(i >= 10)
+fin

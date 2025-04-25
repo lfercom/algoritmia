@@ -1,0 +1,48 @@
+cadena[30] numeroEnLetras
+caracter numero
+
+inicio
+    llamar posicionar_cursor(5,5)
+    escriba "Numero: "
+    llamar posicionar_cursor(15,5)
+    lea numero
+    mientras(numero >= '0') y (numero <= '9') haga
+    	si (numero = '0')entonces
+    	   numeroEnLetras <- "Cero"
+    	sino si (numero = '1') entonces
+    	    numeroEnLetras <- "Uno"
+        sino si (numero = '2') entonces
+    	    numeroEnLetras <- "Dos"
+        sino si (numero = '3') entonces
+    	    numeroEnLetras <- "Tres"
+    	sino si (numero = '4') entonces
+    	    numeroEnLetras <- "Cuatro"
+        sino si (numero = '5') entonces
+    	    numeroEnLetras <- "Cinco"
+        sino si (numero = '6') entonces
+    	    numeroEnLetras <- "Seis"
+        sino si (numero = '7') entonces
+    	    numeroEnLetras <- "Siete"
+        sino si (numero = '8') entonces
+    	    numeroEnLetras <- "Ocho"
+        sino si (numero = '9') entonces
+    	    numeroEnLetras <- "Nueve"
+    	sino
+    	    numeroEnLetras <- "No es un numero"
+    	fin si
+    	fin si
+    	fin si
+    	fin si
+    	fin si
+    	fin si
+    	fin si
+    	fin si
+    	fin si
+    	fin si
+        escriba "Usted digito el numero ",numeroEnLetras   
+        llamar posicionar_cursor(5,5)
+        escriba "Numero: "
+        llamar posicionar_cursor(15,5)
+    lea numero
+    fin mientras
+fin

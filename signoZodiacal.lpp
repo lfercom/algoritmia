@@ -1,0 +1,98 @@
+entero op
+caracter siga
+
+procedimiento menu
+inicio
+    repita
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(25,2)
+        escriba "M E N U  P R I N C I P A L"
+        llamar posicionar_cursor(30,8)
+        escriba "1. Saludo"
+        llamar posicionar_cursor(30,10)
+        escriba "2. Signo zodiacal"
+        llamar posicionar_cursor(30,12)
+        escriba "3. Despedida"
+        llamar posicionar_cursor(30,14)
+        escriba "4. Salir"
+        llamar posicionar_cursor(32,20)
+        escriba "Opcion [ ]"
+        llamar posicionar_cursor(40,20)
+        lea op
+        caso op
+        
+            1: llamar saludo
+            2: llamar signoZodiacal
+            3: llamar despedida
+    
+        fin caso
+    hasta(op = 4)
+ fin
+
+procedimiento saludo
+inicio
+    llamar limpiar_pantalla
+    llamar posicionar_cursor(25,12)
+    escriba "Hola, bienvenido al SENA Regional Tolima"
+    llamar posicionar_cursor(25,13)
+    escriba "Nosotros somos la titulacion ADSI"
+    llamar posicionar_cursor(20,20)
+    escriba "Pulse una tecla para retornar"
+    lea siga
+fin
+
+procedimiento signoZodiacal
+    entero dia,mes
+inicio
+    llamar limpiar_pantalla
+    llamar posicionar_cursor(25,2)
+    escriba "S I G N O  Z O D I A C A L"
+    llamar posicionar_cursor(5,5)
+    escriba "Ingrese dia de nacimiento : "
+    llamar posicionar_cursor(5,6)
+    escriba "Ingrese mes de nacimiento : "
+    llamar posicionar_cursor(33,5)
+    lea dia
+    llamar posicionar_cursor(33,6)
+    lea mes
+    llamar posicionar_cursor(5,7)
+    escriba "Su signo zodiacal es : ", zodiacal(dia,mes)
+    llamar posicionar_cursor(20,20)
+    escriba "Pulse una tecla para retornar"
+    lea siga
+fin
+
+funcion zodiacal(entero dia, entero mes): cadena[30]
+    cadena[30] signo
+inicio
+    si (mes = 1) y (dia >= 21) y (dia <= 31) o (mes = 2) y (dia <= 19) entonces
+        signo <- "Acuario"
+    sino
+        si (mes = 2) y (dia >= 20) y (dia <= 29) o (mes = 3) y (dia <= 20) entonces
+            signo <- "Piscis"
+        sino
+           si (mes = 3) y (dia >= 21) y (dia <= 31) o (mes = 4) y (dia <= 20) entonces
+               signo <- "Aries"
+           sino
+               signo <- "No determinado"
+           fin si
+        fin si
+    fin si
+    retorne signo
+fin
+
+procedimiento despedida
+inicio
+    llamar limpiar_pantalla
+    llamar posicionar_cursor(25,12)
+    escriba "Gracias por visitarnos, lo esperamos pronto"
+    llamar posicionar_cursor(30,13)
+    escriba "www.adsi1095971"   
+    llamar posicionar_cursor(20,20)
+    escriba "Pulse una tecla para retornar"
+    lea siga 
+fin
+
+inicio
+    llamar menu
+fin

@@ -1,0 +1,35 @@
+arreglo[50] de entero lista_fibo
+entero numeros
+
+funcion fibonacci(entero serie):arreglo[50] de entero
+    arreglo[50] de entero lista_fibo
+    entero penultimo,ultimo,siguiente,i
+inicio
+    penultimo <- 0
+    ultimo <- 1
+    siguiente <- 0
+    para i <- 1 hasta 10 haga
+        lista_fibo[i] <- siguiente
+        penultimo <- ultimo
+        ultimo <- siguiente
+        siguiente <- ultimo + penultimo
+    fin para
+    retorne lista_fibo
+fin
+
+procedimiento mostrar(arreglo[50] de entero lista_fibo,entero numeros)
+    entero i
+inicio
+    para i <- 1 hasta numeros haga
+        escriba lista_fibo[i]
+        llamar nueva_linea
+    fin para
+fin
+
+inicio
+    escriba "Cuantos numeros ? "
+    lea numeros
+    lista_fibo <- fibonacci(numeros)
+    llamar mostrar(lista_fibo,numeros)
+fin
+

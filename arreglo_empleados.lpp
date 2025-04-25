@@ -1,0 +1,60 @@
+registro reg_empleado
+    cadena[20] id
+    cadena[20] nombre
+    real sueldo
+fin registro
+
+arreglo[50] de reg_empleado lista_empleados
+reg_empleado empleado
+entero num_empleados
+
+procedimiento frm_empleado(var arreglo[50] de reg_empleado lista_empleados)
+    entero i
+    caracter continuar
+inicio
+    num_empleados <- 0
+    i <- 1
+    repita
+        llamar limpiar_pantalla
+	    escriba "Id........... : "
+	    lea empleado.id
+	    escriba "Nombre....... : "
+	    lea empleado.nombre
+	    escriba "Sueldo....... : "
+	    lea empleado.sueldo
+	    lista_empleados[i] <- empleado
+	    i <- i + 1
+	    num_empleados <- num_empleados + 1
+	    escriba "Desea continuar (S/N) ? "
+	    lea continuar
+	hasta(continuar = 'N') o (continuar = 'n')
+fin
+
+procedimiento mostrar(arreglo[50] de reg_empleado lista_empleados)
+    entero i
+inicio
+    llamar limpiar_pantalla
+    para i <- 1 hasta num_empleados haga
+        escriba lista_empleados[i].id, " ",lista_empleados[i].nombre," $", lista_empleados[i].sueldo, " ", descuento(sueldo)
+        llamar nueva_linea
+    fin para
+fin
+
+funcion descuento(real sueldo):real
+    real descuento
+inicio
+    si (sueldo <= 1000000) entonces
+        descuento <- sueldo * 0.03
+    sino si(sueldo <= 3000000) entonces
+        descuento <- sueldo * 0.04
+    sino
+        descuento <- sueldo * 0.05
+    fin si
+    fin si
+    retorne descuento
+fin
+
+inicio
+    llamar frm_empleado(lista_empleados)
+    llamar mostrar(lista_empleados)
+fin

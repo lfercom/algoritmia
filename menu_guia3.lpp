@@ -1,0 +1,43 @@
+entero numero1,numero2,resultado
+caracter opcion
+
+inicio
+    llamar posicionar_cursor(35,5)
+    escriba "PROGRAMA DE OPERACIONES MATEMATICAS BASICA"
+    llamar posicionar_cursor(35,6)
+    escriba "UTILIZANDO LAS INSTRUCCIONES CONDICIONALES"
+    llamar posicionar_cursor(50,7)
+    escriba "SI/SINO"
+    llamar posicionar_cursor(48,10)
+    escriba "(+) Suma"
+    llamar posicionar_cursor(48,12)
+    escriba "(-) Diferencia"
+    llamar posicionar_cursor(48,14)
+    escriba "(*) Multiplicacion"
+    llamar posicionar_cursor(48,16)
+    escriba "(/) Division"
+    llamar posicionar_cursor(43,20)
+    escriba "Seleccione una opcion [ ]"
+    llamar posicionar_cursor(65,20)
+    lea opcion
+    llamar limpiar_pantalla
+    escriba "Numero 1: "
+    lea numero1
+    escriba "Numero 2: "
+    lea numero2
+    si (opcion = '+') entonces
+        resultado <- numero1 + numero2
+    sino si (opcion = '-') entonces
+        resultado <- numero1 - numero2
+    sino si (opcion = '*') entonces
+        resultado <- numero1 * numero2
+    sino si (opcion = '/') entonces
+        resultado <- numero1 / numero2
+    fin si
+    fin si
+    fin si
+    fin si
+    escriba numero1," ",opcion," ",numero2," = ",resultado
+        
+    
+fin

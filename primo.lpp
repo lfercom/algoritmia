@@ -1,0 +1,58 @@
+//Autor   : Luis Fernando Corredor Mora
+//Fecha   : 30 de septiembre de 2010
+//Archivo : primo.pp
+//Descripcion : este programa determina si un numero es primo o no.
+
+entero numero
+
+//Esta funcion devuelve verdadero si el numero recibido es primo.
+funcion primo(entero numero): booleano
+entero mitad, divisor
+inicio
+     si (numero <>2) y (numero mod 2 = 0) entonces
+           retorne falso
+      sino
+          si (numero > 1) y (numero < 4) entonces
+             retorne verdadero
+          sino   
+             mitad <- numero div 2
+             divisor <- 3
+             mientras (divisor < mitad) y (numero mod divisor <> 0) haga
+               divisor <- divisor + 2
+             fin mientras
+             si (divisor >= mitad) entonces
+                retorne verdadero
+             sino
+                retorne falso
+             fin si
+          fin si
+        fin si
+fin
+
+inicio
+   llamar color_fondo(1)
+   llamar limpiar_pantalla
+   llamar posicionar_cursor(25,3)
+   llamar color_texto(2)
+   escriba "PROGRAMA NUMEROS PRIMOS"
+   llamar posicionar_cursor(3,23)
+   escriba "Para salir de este programa digite 0 (cero) en el numero"
+   llamar posicionar_cursor(3,5)
+   escriba "Numero :"
+   llamar posicionar_cursor(13,5)
+   lea numero
+   mientras (numero > 0) haga
+       si (primo(numero) = verdadero) entonces
+          llamar posicionar_cursor(20,20)
+          escriba numero, " es primo           "
+       sino
+          llamar posicionar_cursor(20,20)
+          escriba numero, " no es primo        "
+       fin si
+       llamar posicionar_cursor(3,5)
+       escriba "Numero :            "
+       llamar posicionar_cursor(13,5)
+       lea numero
+   fin mientras
+fin
+   

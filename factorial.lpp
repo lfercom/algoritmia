@@ -1,0 +1,19 @@
+entero numero,facto
+
+funcion factorial(entero numero): entero
+    entero facto,i
+inicio
+    facto <- 1
+     para i <- 2 hasta numero haga
+        facto <- facto * i
+    fin para
+    retorne facto
+fin
+
+inicio
+    escriba "Numeo ? "
+    lea numero
+    facto <- factorial(numero)
+    escriba "Factorial de ", numero, " es ", facto
+    
+fin

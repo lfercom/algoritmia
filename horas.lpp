@@ -1,0 +1,28 @@
+entero horas_trabajadas,horas_extras
+real valor_hora,valor_hora_extra,total_extras,salario,total_horas_ordinarias
+
+inicio
+    horas_extras <- 0
+    valor_hora_extra <- 0
+    total_extras <- 0
+    escriba "Horas trabajadas ? "
+    lea horas_trabajadas
+    escriba "Valor hora ? "
+    lea valor_hora
+    si (horas_trabajadas > 40) entonces
+        horas_extras <- horas_trabajadas - 40 
+        valor_hora_extra <- valor_hora * 1.5
+        total_extras <- horas_extras * valor_hora_extra   
+    fin si
+    total_horas_ordinarias <- (horas_trabajadas - horas_extras) * valor_hora
+    salario <- total_horas_ordinarias + total_extras
+    escriba "Valor horas ordinarias: $",total_horas_ordinarias
+    llamar nueva_linea
+    escriba "Horas extras..... : ",horas_extras
+    llamar nueva_linea
+    escriba "Valor hora extra. : $",valor_hora_extra
+    llamar nueva_linea
+    escriba "Total horas extras: $",total_extras
+    llamar nueva_linea
+    escriba "Salario...........: $",salario
+fin

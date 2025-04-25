@@ -1,0 +1,33 @@
+entero i
+real nota1,nota2,nota3,promedio
+caracter wait
+
+inicio
+    i <- 1
+    promedio <- 0
+    mientras i <= 5 haga
+        llamar limpiar_pantalla
+        escriba "Nota1 : "
+        lea nota1
+        escriba "Nota2 : "
+        lea nota2
+        escriba "Nota3 : "
+        lea nota3
+        promedio <- (nota1 + nota2 + nota3) / 3
+        si (promedio < 70) entonces
+            escriba "Promedio = ",promedio, " su calificacion es reprobado"
+        sino
+            si (promedio <= 80) entonces
+                escriba "Promedio = ",promedio, " su calificacion es aceptable"
+            sino
+                si (promedio <= 90) entonces
+                    escriba "Promedio = ",promedio, " su calificacion es sobresaliente"
+                sino
+                    escriba "Promedio = ",promedio, " su calificacion es excelente"
+                fin si
+            fin si
+        fin si
+        i <- i + 1
+        lea wait
+    fin mientras
+fin

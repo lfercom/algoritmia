@@ -1,0 +1,19 @@
+Entero n, num
+
+procedimiento tabla_multiplicar(Entero numero, Entero limite)
+    Entero i, resultado
+inicio
+    Para i <- 1 hasta limite haga
+        resultado <- numero * i
+        Escriba numero, " x ", i, " = ", resultado
+        llamar nueva_linea
+    Fin para
+fin
+
+inicio
+    Escriba "Ingrese el número base de la tabla: "
+    Lea num
+    Escriba "Ingrese hasta qué número desea multiplicar: "
+    Lea n
+    llamar tabla_multiplicar(num, n)
+fin

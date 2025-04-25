@@ -1,0 +1,74 @@
+registro reg_empleado
+    entero id
+    cadena[20] nombre
+    cadena[10] apellido1
+    cadena[10] apellido2
+    cadena[20] direccion
+    cadena[10] telefono
+    real sueldo    
+    real descuento
+fin registro
+
+arreglo[2] de reg_empleado empleados
+
+procedimiento ingresar(var arreglo[2] de reg_empleado e)
+    entero i
+inicio    
+    para i <- 1 hasta 2 haga
+        llamar limpiar_pantalla
+        llamar posicionar_cursor(30,5)
+        escriba "R E G I S T R O  D E  E M P L E A D O S"
+        llamar posicionar_cursor(5,7)
+        escriba "Id........ : "
+        llamar posicionar_cursor(5,8)
+        escriba "Nombre.... : "
+        llamar posicionar_cursor(5,9)
+        escriba "Apellido1. : "
+        llamar posicionar_cursor(5,10)
+        escriba "Apellido2. : "
+        llamar posicionar_cursor(5,11)
+        escriba "Direccion  : "
+        llamar posicionar_cursor(5,12)
+        escriba "Telefono.. : "
+        llamar posicionar_cursor(5,13)
+        escriba "Sueldo.... : $"
+        llamar posicionar_cursor(18,7)
+        lea e[i].id        
+        llamar posicionar_cursor(18,8)
+        lea e[i].nombre       
+        llamar posicionar_cursor(18,9)
+        lea e[i].apellido1   
+        llamar posicionar_cursor(18,10)
+        lea e[i].apellido2
+        llamar posicionar_cursor(18,11)
+        lea e[i].direccion       
+        llamar posicionar_cursor(18,12)
+        lea e[i].telefono
+        llamar posicionar_cursor(19,13)
+        lea e[i].sueldo
+        e[i].descuento <- descuento(e[i].sueldo)
+        llamar posicionar_cursor(19,14)
+        escriba "Descuento: $",e[i].descuento       
+    fin para
+fin
+
+
+funcion descuento(real sueldo):real
+    real descuento
+inicio
+    si(sueldo <= 1000000) entonces
+        descuento <- sueldo * 0.03
+    sino si(sueldo <= 2000000) entonces
+        descuento <- sueldo * 0.05
+    sino
+        descuento <- sueldo * 0.07
+    fin si
+    fin si
+    retorne descuento
+fin
+
+
+inicio
+    llamar ingresar(empleados)
+fin
+

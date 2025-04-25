@@ -1,0 +1,43 @@
+arreglo[5] de cadena[10] lista_colores
+arreglo[5] de cadena[10] copia_colores
+caracter siga
+
+procedimiento inicializar(var arreglo[5] de cadena[10] lista)
+    entero i
+inicio
+    para i <- 1 hasta 5 haga
+        escriba "Ingrese un color para la posicion [",i,"]: "
+        lea lista[i]
+    fin para
+fin
+
+procedimiento mostrar(arreglo[5] de cadena[10] lista)
+    entero i
+inicio
+    para i <- 1 hasta 5 haga
+        escriba lista[i]
+        llamar nueva_linea
+    fin para    
+fin
+
+funcion copia(arreglo[5] de cadena[10] lista1):arreglo[5] de cadena[10] 
+   arreglo[5] de cadena[10] lista2
+   entero i
+inicio
+   para i <- 1 hasta 5 haga
+       lista2[i] <- lista1[i]
+   fin para
+   retorne lista2
+fin
+
+inicio
+    llamar inicializar(lista_colores)
+    llamar limpiar_pantalla
+    escriba "LISTA COLORES ORIGINAL"
+    copia_colores <- copia(lista_colores)
+    llamar mostrar(lista_colores)
+    escriba "Pulse una tecla para continuar..."
+    lea siga
+    escriba "LISTA COLORES COPIA"
+    llamar mostrar(copia_colores)
+fin

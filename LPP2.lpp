@@ -1,0 +1,39 @@
+arreglo[3,2] de cadena[20] espanol_ingles
+arreglo[3,2] de cadena[20] espanol_frances
+arreglo[3,2] de cadena[20] espanol_italiano
+entero numero_palabras
+
+procedimiento alimentar_diccionario(var arreglo[3,2] de cadena[20] diccionario)
+    entero i
+    caracter continuar
+inicio
+   numero_palabras <- 0
+    i <- 1
+    repita
+        escriba "Ingrese palabra en español: "
+        lea diccionario[i,1] 
+        escriba "Ingrese palabra en ingles: "
+        lea diccionario[i,2] 
+        numero_palabras <- numero_palabras + 1
+        i <- i + 1
+       llamar nueva_linea
+       escriba "Desea ingresar otra palabra (S/N) ? : "
+       lea continuar
+    hasta(continuar = 'N') o (continuar = 'n')
+fin
+
+
+procedimiento mostrar_diccionario(arreglo[3,2] de cadena[20] diccionario)
+    entero i
+inicio
+    para i <- 1 hasta numero_palabras haga
+        escriba "Ingrese palabra en español: "
+        lea diccionario[i,1] 
+    fin para
+fin
+
+
+inicio
+    llamar alimentar_diccionario(espanol_ingles)
+    llamar mostrar_diccionario(espanol_ingles)
+fin

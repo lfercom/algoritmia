@@ -1,0 +1,38 @@
+procedimiento marco(entero col1, entero fil1, entero col2,entero fil2)
+    entero i
+inicio
+    para i <- col1 hasta col2 haga
+        llamar posicionar_cursor(i,fil1)
+        escriba "*"
+        llamar posicionar_cursor(i,fil2)
+        escriba "*"
+       
+    fin para
+    para i <- fil1 hasta fil2 haga
+        llamar posicionar_cursor(col1,i)
+        escriba "*"
+        llamar posicionar_cursor(col2,i)
+        escriba "*"
+    fin para
+fin
+
+procedimiento marcos(entero n,entero intervalo)
+    entero col1,fil1,col2,fil2,i
+inicio
+    col1 <- 1
+    fil1 <- 1
+    col2 <- 79
+    fil2 <- 25
+    para i <- 1 hasta n haga
+        llamar marco(col1,fil1,col2,fil2)
+        col1 <- col1 + intervalo
+        fil1 <- fil1 + intervalo
+        col2 <- col2 - intervalo
+        fil2 <- fil2 - intervalo
+    fin para
+fin
+
+inicio
+   
+    llamar marcos(3,2)
+fin

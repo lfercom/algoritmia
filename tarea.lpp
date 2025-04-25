@@ -1,0 +1,70 @@
+arreglo[3] de entero numeros
+arreglo[6,3] de entero matrizNumeros
+entero cantidad,combinaciones
+
+funcion factorial(entero numero):entero
+    entero facto,i
+inicio
+    facto <- 1
+    para i <- 2 hasta numero haga
+        facto <- facto * i
+    fin para
+    retorne facto
+fin
+
+procedimiento captura(var arreglo[3] de entero numeros)
+    entero i
+inicio
+    escriba "Numeros a combinar: "
+    lea cantidad
+    para i <- 1 hasta cantidad haga
+        escriba "Numero: "
+        lea numeros[i]
+    fin para
+fin
+
+
+procedimiento combinar(var arreglo[3] de entero numeros)
+    entero i,j,aux,k
+inicio
+    k <- 1
+    combinaciones <- factorial(cantidad)
+    
+    para i <- 1 hasta combinaciones haga
+        si (k = cantidad -1) entonces
+           k = 1
+        fin si
+       
+        para j <- 1 hasta cantidad haga
+            matrizNumeros[k,j] <- numeros[j]
+            llamar nueva_linea
+            escriba "Matriz ",i, " : ",j, " = ", matrizNumeros[i,j]
+        fin para
+           k <- k + 1        
+        fin si
+        
+        aux <- numeros[k]
+        numeros[k] <- numeros[k+1]
+        numeros[k+1] <- aux        
+    fin para
+fin
+
+procedimiento mostrar
+    entero i,j,col
+inicio
+    para i <- 1 hasta combinaciones haga
+        col <- 5
+        para j <- 1 hasta cantidad haga
+            llamar posicionar_cursor(i,col)
+            escriba matrizNumeros[i,j]
+            col <- col + 15            
+        fin para
+    fin para
+fin
+
+
+inicio
+    llamar captura(numeros)
+    llamar combinar(numeros)
+    //llamar mostrar
+fin

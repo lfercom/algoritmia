@@ -1,0 +1,42 @@
+arreglo[15] de entero lista_numeros1
+arreglo[15] de entero lista_numeros2
+
+procedimiento inicializar(var arreglo[15] de entero lista)
+    entero i
+inicio
+    para i <- 1 hasta 15 haga
+        lista[i] <- i
+    fin para
+fin
+
+procedimiento mostrar(arreglo[15] de entero lista)
+    entero i
+    caracter siga
+inicio
+   llamar limpiar_pantalla
+   para i <- 1 hasta 15 haga
+       escriba lista[i]
+       llamar nueva_linea
+   fin para
+   escriba "Suma = ",suma(lista)
+   llamar nueva_linea
+   escriba "Pulse una tecla para continuar..."
+   lea siga
+fin
+
+funcion suma(arreglo[15] de entero lista): entero
+    entero sumatoria,i
+inicio
+    sumatoria <- 0
+    para i <- 1 hasta 15 haga
+        sumatoria <- sumatoria + lista[i]
+    fin para
+    retorne sumatoria
+fin
+
+inicio
+   llamar inicializar(lista_numeros1)
+   llamar inicializar(lista_numeros2)
+   llamar mostrar(lista_numeros1)
+   llamar mostrar(lista_numeros2)
+fin

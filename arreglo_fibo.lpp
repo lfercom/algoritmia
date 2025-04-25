@@ -1,0 +1,37 @@
+arreglo[20] de entero lista_fibonacci
+entero numeros
+
+funcion fibonacci(entero cantidad):arreglo[20] de entero
+    arreglo[20] de entero fibonacci_numero
+    entero penultimo,ultimo,siguiente,i
+
+inicio
+    penultimo <- 0
+    ultimo <- 1
+    siguiente <- 0
+    i <- 1
+    mientras(i <= cantidad)haga
+      fibonacci_numero[i] <- siguiente
+      penultimo <- ultimo
+      ultimo <- siguiente
+      siguiente <- ultimo + penultimo      
+      i <- i + 1
+    fin mientras
+    retorne fibinacci_numero
+fin
+
+procedimiento mostrar(arreglo[20] de entero lista_fibonacci)
+    entero i
+inicio
+   para i <- 1 hasta numeros haga
+       escriba lista_fibnacci[i]
+       llamar nueva_linea
+   fin para
+fin
+
+inicio
+    escriba "Cuantos numeros ? "
+    lea numeros
+    lista_fibonacci <- fibonacci(numeros)
+    llamar mostrar(lista_fibonacci)
+fin

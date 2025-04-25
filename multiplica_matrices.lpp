@@ -1,0 +1,67 @@
+arreglo[2,2] de entero numeros1
+arreglo[2,2] de entero numeros2
+arreglo[2,2] de entero numeros3
+
+procedimiento captura(var arreglo[2,2] de entero arr,cadena[20] nombre_matriz)
+    entero i,j
+inicio
+    llamar limpiar_pantalla
+    llamar posicionar_cursor(35,5)
+    escriba nombre_matriz
+    llamar nueva_linea
+    llamar nueva_linea
+    para i <- 1 hasta 2 haga
+        para j <- 1 hasta 2 haga
+            escriba "Numero para fila ", i, " columna ",j, ": "
+            lea arr[i,j]
+        fin para
+    fin para
+fin
+
+procedimiento pro_multiplica(arreglo[2,2] de entero arr1,arreglo[2,2] de entero arr2,var arreglo[2,2] de entero arr3)
+    entero i,j
+inicio
+    para i <- 1 hasta 2 haga
+        para j <- 1 hasta 2 haga
+            arr3[i,j] <- arr1[i,j] * arr2[i,j]
+        fin para
+    fin para
+fin
+
+funcion fun_multiplica(arreglo[2,2] de entero arr1,arreglo[2,2] de entero arr2):arreglo[2,2] de entero
+    arreglo[2,2] de entero arr3
+    entero i,j
+inicio
+    para i <- 1 hasta 2 haga
+        para j <- 1 hasta 2 haga
+            arr3[i,j] <- arr1[i,j] * arr2[i,j]
+        fin para
+    fin para
+    retorne arr3
+fin
+
+procedimiento mostrar(arreglo[2,2] de entero arr,entero columna)
+   entero i,j,col
+inicio
+    para i <- 1 hasta 2 haga
+        col <- columna
+        para j <- 1 hasta 2 haga
+            llamar posicionar_cursor(col,i)
+            escriba arr[i,j]," "
+            col <- col + 5
+        fin para
+        llamar nueva_linea
+    fin para
+fin
+
+inicio   
+    llamar captura(numeros1,"DATOS PARA MATRIZ 1")
+    llamar captura(numeros2,"DATOS PARA MATRIZ 2")
+    numeros3 <- fun_multiplica(numeros1,numeros2)
+    llamar limpiar_pantalla
+    llamar mostrar(numeros1,5)
+    llamar mostrar(numeros2,15)
+    llamar mostrar(numeros3,25)
+fin
+
+

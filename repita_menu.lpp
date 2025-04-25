@@ -1,0 +1,45 @@
+entero op,numero1,numero2,resultado
+
+procedimiento menu
+    inicio
+        repita
+	        llamar posicionar_cursor(30,5)
+	        escriba "1. Suma"
+	        llamar posicionar_cursor(30,6)
+	        escriba "2 Resta"
+	        llamar posicionar_cursor(30,7)
+	        escriba "3. Multiplicacion"
+	        llamar posicionar_cursor(30,8)
+	        escriba "4. Division"
+	        llamar posicionar_cursor(30,9)
+	        escriba "5. Salir"
+	        llamar nueva_linea
+	        escriba "Elija una opcion ? "
+	        lea op
+	        si (op >= 1) y (op <= 4) entonces
+	            llamar limpiar_pantalla
+	            escriba "Numero1: "
+	            lea numero1
+	            escriba "Numero2: "
+	            lea numero2
+	            si (op = 1) entonces
+	                resultado <- numero1 + numero2
+	            sino si (op = 2) entonces
+	                resultado <- numero1 - numero2
+	            sino si (op = 3) entonces
+	                resultado <- numero1 * numero2
+	            sino 
+	                resultado <- numero1 / numero2
+	            fin si
+	            fin si
+	            fin si
+	        sino
+	            escriba "La opcion no existe"
+	        fin si  
+	        escriba "El resultado es = ",resultado
+	    hasta(opcion = 5)
+    fin
+
+inicio
+    llamar menu
+fin
